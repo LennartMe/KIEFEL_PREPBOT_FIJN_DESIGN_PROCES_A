@@ -1,0 +1,617 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="_1_4_1_1_1_Controle_van_Bewerkingen" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="Capaciteitsgroep" Type="InArgument(x:String)" />
+    <x:Property Name="Uren" Type="InOutArgument(x:String)" />
+    <x:Property Name="dt_SubPDinformation" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="Onderdeel" Type="InArgument(x:String)" />
+    <x:Property Name="Cavities" Type="InArgument(x:String)" />
+    <x:Property Name="DummyUren" Type="InArgument(x:String)" />
+  </x:Members>
+  <this:_1_4_1_1_1_Controle_van_Bewerkingen.Cavities>
+    <InArgument x:TypeArguments="x:String" />
+  </this:_1_4_1_1_1_Controle_van_Bewerkingen.Cavities>
+  <sap:VirtualizedContainerService.HintSize>1643,5559</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Database</x:String>
+      <x:String>UiPath.Database.Activities</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Globalization</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>netstandard</AssemblyReference>
+      <AssemblyReference>DataService.Prepbot_Fijn_Design_Proces_A</AssemblyReference>
+      <AssemblyReference>UiPath.DataService.Definition</AssemblyReference>
+      <AssemblyReference>UiPath.DataService.Activities.Core</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Runtime.CompilerServices.VisualC</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Persistence.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>UiPath.Database</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>C96CF6A7695_Bewerkin.33u2x1v3cTS17xBhvivS2J4</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap:VirtualizedContainerService.HintSize="846,5494" sap2010:WorkflowViewState.IdRef="Sequence_12">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="ControlerenMet" />
+      <Variable x:TypeArguments="x:String" Name="MaxToegestaneAfwijking" />
+      <Variable x:TypeArguments="x:String" Name="UrenType" />
+      <Variable x:TypeArguments="x:String" Name="ReferentieSheet" />
+      <Variable x:TypeArguments="x:String" Name="UrenIngevuld" />
+      <Variable x:TypeArguments="x:String" Name="ExtraSteltijd" />
+      <Variable x:TypeArguments="x:String" Name="MinimaleAfwijkingPercentage" />
+      <Variable x:TypeArguments="x:String" Name="MaximaleAfwijkingPercentage" />
+      <Variable x:TypeArguments="x:String" Name="MinimaleAfwijking" />
+      <Variable x:TypeArguments="x:String" Name="MaximaleAfwijking" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="784,303" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+      <ui:MultipleAssign.AssignOperations>
+        <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_16">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[MaxToegestaneAfwijking]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[dt_ControleVanBewerkingen(dt_ControleVanBewerkingen.AsEnumerable().ToList().FindIndex(Function(row) row("Capaciteitsgroep").ToString().trim.tolower = Capaciteitsgroep.trim.tolower))("Max. toegestane afwijking").tostring]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_17">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[UrenType]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[dt_ControleVanBewerkingen(dt_ControleVanBewerkingen.AsEnumerable().ToList().FindIndex(Function(row) row("Capaciteitsgroep").ToString().trim.tolower = Capaciteitsgroep.trim.tolower))("Uren Type").tostring]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_18">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[ReferentieSheet]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[dt_ControleVanBewerkingen(dt_ControleVanBewerkingen.AsEnumerable().ToList().FindIndex(Function(row) row("Capaciteitsgroep").ToString().trim.tolower = Capaciteitsgroep.trim.tolower))("Referentie Sheet").tostring]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_19">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[UrenIngevuld]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[dt_ControleVanBewerkingen(dt_ControleVanBewerkingen.AsEnumerable().ToList().FindIndex(Function(row) row("Capaciteitsgroep").ToString().trim.tolower = Capaciteitsgroep.trim.tolower))("Uren Ingevuld").tostring]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_20">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[ExtraSteltijd]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[dt_ControleVanBewerkingen(dt_ControleVanBewerkingen.AsEnumerable().ToList().FindIndex(Function(row) row("Capaciteitsgroep").ToString().trim.tolower = Capaciteitsgroep.trim.tolower))("Extra Steltijd").tostring]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+          <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_23">
+            <ui:AssignOperation.To>
+              <OutArgument x:TypeArguments="x:String">[ControlerenMet]</OutArgument>
+            </ui:AssignOperation.To>
+            <ui:AssignOperation.Value>
+              <InArgument x:TypeArguments="x:String">[dt_ControleVanBewerkingen(dt_ControleVanBewerkingen.AsEnumerable().ToList().FindIndex(Function(row) row("Capaciteitsgroep").ToString().trim.tolower = Capaciteitsgroep.trim.tolower))("Controleren Met").tostring]</InArgument>
+            </ui:AssignOperation.Value>
+          </ui:AssignOperation>
+        </scg:List>
+      </ui:MultipleAssign.AssignOperations>
+    </ui:MultipleAssign>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="784,173" sap2010:WorkflowViewState.IdRef="LogMessage_3" Message="[&quot;MaxToegestaneAfwijking: &quot; &amp; MaxToegestaneAfwijking &amp; Environment.NewLine &amp; &quot;UrenType: &quot; &amp; UrenType &amp; Environment.NewLine &amp; &quot;ReferentieSheet: &quot; &amp; ReferentieSheet &amp; Environment.NewLine &amp; &quot;UrenIngevuld: &quot; &amp; UrenIngevuld &amp; Environment.NewLine &amp; &quot;ExtraSteltijd: &quot; &amp; ExtraSteltijd &amp; Environment.NewLine &amp; &quot;Controleren met: &quot; &amp; ControlerenMet]" />
+    <If Condition="[ExtraSteltijd.contains(&quot;x&quot;)]" DisplayName="Stelstijden controle" sap:VirtualizedContainerService.HintSize="784,298" sap2010:WorkflowViewState.IdRef="If_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_17">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Sequence DisplayName="3. Steltijden" sap:VirtualizedContainerService.HintSize="637,1062" sap2010:WorkflowViewState.IdRef="Sequence_16">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="575,173" sap2010:WorkflowViewState.IdRef="LogMessage_19" Message="[&quot;Index found: &quot; &amp; dt_3Steltijden.AsEnumerable().ToList().FindIndex(Function(row) _&#xA;    Not String.IsNullOrEmpty(dt_SubPDinformation.Rows(0)(&quot;Partcode&quot;).ToString.Trim) AndAlso _&#xA;    Not String.IsNullOrEmpty(row(&quot;Artikelnr&quot;).ToString.Trim) AndAlso _&#xA;    dt_SubPDinformation.Rows(0)(&quot;Partcode&quot;).ToString.ToLower.Trim = row(&quot;Artikelnr&quot;).ToString.ToLower.Trim AndAlso _&#xA;    dt_SubPDinformation.Rows(0)(&quot;Description&quot;).ToString.ToLower.Trim.Contains(row(&quot;Omschrijving&quot;).ToString.ToLower.Trim) AndAlso _&#xA;    (Onderdeel.ToLower.Contains(row(&quot;Onderdeel&quot;).ToString.ToLower) Or String.IsNullOrEmpty(Onderdeel.Trim))&#xA;)]" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="575,173" sap2010:WorkflowViewState.IdRef="LogMessage_20" Message="[&quot;Value found: &quot; &amp; If(dt_3Steltijden.AsEnumerable().ToList().FindIndex(Function(row) _&#xA;    Not String.IsNullOrWhiteSpace(dt_SubPDinformation.Rows(0)(&quot;Partcode&quot;).ToString) AndAlso _&#xA;    Not String.IsNullOrWhiteSpace(row(&quot;Artikelnr&quot;).ToString) AndAlso _&#xA;    dt_SubPDinformation.Rows(0)(&quot;Partcode&quot;).ToString.ToLower.Trim = row(&quot;Artikelnr&quot;).ToString.ToLower.Trim AndAlso _&#xA;    dt_SubPDinformation.Rows(0)(&quot;Description&quot;).ToString.ToLower.Trim.Contains(row(&quot;Omschrijving&quot;).ToString.ToLower.Trim) AndAlso _&#xA;    (Not String.IsNullOrWhiteSpace(Onderdeel) AndAlso Onderdeel.ToLower.Contains(row(&quot;Onderdeel&quot;).ToString.ToLower) OrElse String.IsNullOrWhiteSpace(Onderdeel.Trim)) _&#xA;) &gt;= 0, dt_3Steltijden(dt_3Steltijden.AsEnumerable().ToList().FindIndex(Function(row) _&#xA;    Not String.IsNullOrWhiteSpace(dt_SubPDinformation.Rows(0)(&quot;Partcode&quot;).ToString) AndAlso _&#xA;    Not String.IsNullOrWhiteSpace(row(&quot;Artikelnr&quot;).ToString) AndAlso _&#xA;    dt_SubPDinformation.Rows(0)(&quot;Partcode&quot;).ToString.ToLower.Trim = row(&quot;Artikelnr&quot;).ToString.ToLower.Trim AndAlso _&#xA;    dt_SubPDinformation.Rows(0)(&quot;Description&quot;).ToString.ToLower.Trim.Contains(row(&quot;Omschrijving&quot;).ToString.ToLower.Trim) AndAlso _&#xA;    (Not String.IsNullOrWhiteSpace(Onderdeel) AndAlso Onderdeel.ToLower.Contains(row(&quot;Onderdeel&quot;).ToString.ToLower) OrElse String.IsNullOrWhiteSpace(Onderdeel.Trim)) _&#xA;))(&quot;CDR&quot;).ToString, &quot;No match found&quot;)]" />
+            <If Condition="[dt_3Steltijden.AsEnumerable().ToList().FindIndex(Function(row) _&#xA;    Not String.IsNullOrEmpty(dt_SubPDinformation.Rows(0)(&quot;Partcode&quot;).ToString.Trim) AndAlso _&#xA;    Not String.IsNullOrEmpty(row(&quot;Artikelnr&quot;).ToString.Trim) AndAlso _&#xA;    dt_SubPDinformation.Rows(0)(&quot;Partcode&quot;).ToString.ToLower.Trim = row(&quot;Artikelnr&quot;).ToString.ToLower.Trim AndAlso _&#xA;    dt_SubPDinformation.Rows(0)(&quot;Description&quot;).ToString.ToLower.Trim.Contains(row(&quot;Omschrijving&quot;).ToString.ToLower.Trim) AndAlso _&#xA;    (Onderdeel.ToLower.Contains(row(&quot;Onderdeel&quot;).ToString.ToLower) Or String.IsNullOrEmpty(Onderdeel.Trim))&#xA;) &gt; -1]" DisplayName="If Match found" sap:VirtualizedContainerService.HintSize="575,605" sap2010:WorkflowViewState.IdRef="If_6">
+              <If.Then>
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="541,341" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,148" sap2010:WorkflowViewState.IdRef="MultipleAssign_6">
+                    <ui:MultipleAssign.AssignOperations>
+                      <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_29">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:String">[ExtraSteltijd]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:String" xml:space="preserve">[dt_3Steltijden(dt_3Steltijden.AsEnumerable().ToList().FindIndex(Function(row) _
+    Not String.IsNullOrWhiteSpace(dt_SubPDinformation.Rows(0)("Partcode").ToString) AndAlso _
+    Not String.IsNullOrWhiteSpace(row("Artikelnr").ToString) AndAlso _
+    dt_SubPDinformation.Rows(0)("Partcode").ToString.ToLower.Trim = row("Artikelnr").ToString.ToLower.Trim AndAlso _
+    dt_SubPDinformation.Rows(0)("Description").ToString.ToLower.Trim.Contains(row("Omschrijving").ToString.ToLower.Trim) AndAlso _
+    (Not String.IsNullOrWhiteSpace(Onderdeel) AndAlso Onderdeel.ToLower.Contains(row("Onderdeel").ToString.ToLower) OrElse String.IsNullOrWhiteSpace(Onderdeel.Trim)) _
+))("CDR").ToString]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                      </scg:List>
+                    </ui:MultipleAssign.AssignOperations>
+                  </ui:MultipleAssign>
+                  <Assign DisplayName="Add Extrasteltijd to Uren" sap:VirtualizedContainerService.HintSize="479,105" sap2010:WorkflowViewState.IdRef="Assign_5">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[Uren]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String">[String.Format("{0:0.00}", CDbl(Uren.Replace(",", ".")) + CDbl(ExtraSteltijd.Replace(",", "."))).Replace(".", ",")]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,103" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </If.Else>
+            </If>
+          </Sequence>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,103" sap2010:WorkflowViewState.IdRef="Sequence_18">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </If.Else>
+    </If>
+    <ui:IfElseIfV2 Condition="[UrenIngevuld.Contains(&quot;x&quot;)]" DisplayName="Standaardtabel en Frezen controle" sap:VirtualizedContainerService.HintSize="784,4468" sap2010:WorkflowViewState.IdRef="IfElseIfV2_1">
+      <ui:IfElseIfV2.Else>
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,103" sap2010:WorkflowViewState.IdRef="Sequence_10">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </ui:IfElseIfV2.Else>
+      <ui:IfElseIfV2.ElseIfs>
+        <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+          <ui:IfElseIfBlock BlockType="ElseIf" Condition="[ReferentieSheet.contains(&quot;x&quot;) and ControlerenMet.contains(&quot;1. Standaardtabel&quot;)]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_1">
+            <ui:IfElseIfBlock.Then>
+              <Sequence DisplayName="Ref sheet 1" sap:VirtualizedContainerService.HintSize="750,1628" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                <Sequence.Variables>
+                  <Variable x:TypeArguments="x:String" Name="MinimaleAfwijking" />
+                  <Variable x:TypeArguments="x:String" Name="MaximaleAfwijking" />
+                </Sequence.Variables>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Sequence DisplayName="1. StandaardTabel" sap:VirtualizedContainerService.HintSize="688,1540" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="MatchRow1Standaardtabel" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="626,173" sap2010:WorkflowViewState.IdRef="LogMessage_17" Message="[&quot;Index found: &quot; &amp; dt_1StandaardTabel.AsEnumerable().ToList().FindIndex(Function(row) _&#xA;    IsNumeric(Uren.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) AndAlso _&#xA;    Not String.IsNullOrEmpty(row(&quot;Bewerkingstijd Van&quot;).ToString.Trim) AndAlso IsNumeric(row(&quot;Bewerkingstijd Van&quot;).ToString.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) AndAlso _&#xA;    (String.IsNullOrEmpty(row(&quot;Bewerkingstijd Tot&quot;).ToString.Trim) OrElse IsNumeric(row(&quot;Bewerkingstijd Tot&quot;).ToString.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;))) AndAlso _&#xA;    CDbl(row(&quot;Bewerkingstijd Van&quot;).ToString.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) &lt;= CDbl(Uren.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) AndAlso _&#xA;    (String.IsNullOrEmpty(row(&quot;Bewerkingstijd Tot&quot;).ToString.Trim) OrElse CDbl(row(&quot;Bewerkingstijd Tot&quot;).ToString.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) &gt;= CDbl(Uren.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)))&#xA;)]" />
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="626,173" sap2010:WorkflowViewState.IdRef="LogMessage_18" Message="[&quot;Value found: &quot; &amp; If(dt_1StandaardTabel.AsEnumerable().ToList().FindIndex(Function(row) _&#xA;    Not String.IsNullOrWhiteSpace(row(&quot;Bewerkingstijd Van&quot;).ToString) AndAlso _&#xA;    Not String.IsNullOrWhiteSpace(Uren) AndAlso _&#xA;    CDbl(row(&quot;Bewerkingstijd Van&quot;).ToString.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) &lt;= CDbl(Uren.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) AndAlso _&#xA;    (String.IsNullOrWhiteSpace(row(&quot;Bewerkingstijd Tot&quot;).ToString) OrElse CDbl(row(&quot;Bewerkingstijd Tot&quot;).ToString.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) &gt;= CDbl(Uren.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;))) _&#xA;) &gt;= 0, dt_1StandaardTabel(dt_1StandaardTabel.AsEnumerable().ToList().FindIndex(Function(row) _&#xA;    Not String.IsNullOrWhiteSpace(row(&quot;Bewerkingstijd Van&quot;).ToString) AndAlso _&#xA;    Not String.IsNullOrWhiteSpace(Uren) AndAlso _&#xA;    CDbl(row(&quot;Bewerkingstijd Van&quot;).ToString.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) &lt;= CDbl(Uren.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) AndAlso _&#xA;    (String.IsNullOrWhiteSpace(row(&quot;Bewerkingstijd Tot&quot;).ToString) OrElse CDbl(row(&quot;Bewerkingstijd Tot&quot;).ToString.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) &gt;= CDbl(Uren.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;))) _&#xA;))(&quot;Minimale Afwijking&quot;).ToString, &quot;No match found&quot;)]" />
+                  <If Condition="[dt_1StandaardTabel.AsEnumerable().ToList().FindIndex(Function(row) _&#xA;    IsNumeric(Uren.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) AndAlso _&#xA;    Not String.IsNullOrEmpty(row(&quot;Bewerkingstijd Van&quot;).ToString.Trim) AndAlso IsNumeric(row(&quot;Bewerkingstijd Van&quot;).ToString.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) AndAlso _&#xA;    (String.IsNullOrEmpty(row(&quot;Bewerkingstijd Tot&quot;).ToString.Trim) OrElse IsNumeric(row(&quot;Bewerkingstijd Tot&quot;).ToString.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;))) AndAlso _&#xA;    CDbl(row(&quot;Bewerkingstijd Van&quot;).ToString.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) &lt;= CDbl(Uren.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) AndAlso _&#xA;    (String.IsNullOrEmpty(row(&quot;Bewerkingstijd Tot&quot;).ToString.Trim) OrElse CDbl(row(&quot;Bewerkingstijd Tot&quot;).ToString.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) &gt;= CDbl(Uren.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)))&#xA;) &gt; -1]" DisplayName="If match is found" sap:VirtualizedContainerService.HintSize="626,1083" sap2010:WorkflowViewState.IdRef="If_5">
+                    <If.Then>
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="592,897" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="530,179" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+                          <ui:MultipleAssign.AssignOperations>
+                            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_21">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[MinimaleAfwijking]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String" xml:space="preserve">[dt_1StandaardTabel(
+    dt_1StandaardTabel.AsEnumerable().ToList().FindIndex(Function(row) _
+        Not String.IsNullOrWhiteSpace(row("Bewerkingstijd Van").ToString) AndAlso _
+        Not String.IsNullOrWhiteSpace(Uren) AndAlso _
+        Double.Parse(row("Bewerkingstijd Van").ToString.Replace(",", "."), Globalization.CultureInfo.InvariantCulture) &lt;= _
+        Double.Parse(Uren.Replace(",", "."), Globalization.CultureInfo.InvariantCulture) AndAlso _
+        (String.IsNullOrWhiteSpace(row("Bewerkingstijd Tot").ToString) OrElse _
+         Double.Parse(row("Bewerkingstijd Tot").ToString.Replace(",", "."), Globalization.CultureInfo.InvariantCulture) &gt;= _
+         Double.Parse(Uren.Replace(",", "."), Globalization.CultureInfo.InvariantCulture)) _
+    )
+)("Minimale Afwijking").ToString()]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_22">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[MaximaleAfwijking]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String" xml:space="preserve">[dt_1StandaardTabel(
+    dt_1StandaardTabel.AsEnumerable().ToList().FindIndex(Function(row) _
+        Not String.IsNullOrWhiteSpace(row("Bewerkingstijd Van").ToString) AndAlso _
+        Not String.IsNullOrWhiteSpace(Uren) AndAlso _
+        Double.Parse(row("Bewerkingstijd Van").ToString.Replace(",", "."), Globalization.CultureInfo.InvariantCulture) &lt;= _
+        Double.Parse(Uren.Replace(",", "."), Globalization.CultureInfo.InvariantCulture) AndAlso _
+        (String.IsNullOrWhiteSpace(row("Bewerkingstijd Tot").ToString) OrElse _
+         Double.Parse(row("Bewerkingstijd Tot").ToString.Replace(",", "."), Globalization.CultureInfo.InvariantCulture) &gt;= _
+         Double.Parse(Uren.Replace(",", "."), Globalization.CultureInfo.InvariantCulture)) _
+    )
+)("Maximale Afwijking").ToString()]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                            </scg:List>
+                          </ui:MultipleAssign.AssignOperations>
+                        </ui:MultipleAssign>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="530,173" sap2010:WorkflowViewState.IdRef="LogMessage_14" Message="[If(&#xA;    Not String.IsNullOrWhiteSpace(Uren) AndAlso&#xA;    Not String.IsNullOrWhiteSpace(DummyUren) AndAlso&#xA;    Not String.IsNullOrWhiteSpace(MinimaleAfwijking) AndAlso&#xA;    Not String.IsNullOrWhiteSpace(MaximaleAfwijking),&#xA;    &quot;Uren: &quot; &amp; Uren &amp; &quot; | DummyUren: &quot; &amp; DummyUren &amp; &quot; | Min afw.: &quot; &amp; MinimaleAfwijking &amp; &quot; | Max afw.: &quot; &amp; MaximaleAfwijking &amp; vbNewLine &amp;&#xA;    &quot;Ondergrens: &quot; &amp; (Double.Parse(DummyUren.Replace(&quot;,&quot;, &quot;.&quot;), Globalization.CultureInfo.InvariantCulture) - Double.Parse(MinimaleAfwijking.Replace(&quot;,&quot;, &quot;.&quot;), Globalization.CultureInfo.InvariantCulture)).ToString(&quot;0.00&quot;) &amp;&#xA;    &quot; | Bovengrens: &quot; &amp; (Double.Parse(DummyUren.Replace(&quot;,&quot;, &quot;.&quot;), Globalization.CultureInfo.InvariantCulture) + Double.Parse(MaximaleAfwijking.Replace(&quot;,&quot;, &quot;.&quot;), Globalization.CultureInfo.InvariantCulture)).ToString(&quot;0.00&quot;) &amp; vbNewLine &amp;&#xA;    &quot;Afwijking in uren: &quot; &amp; (Double.Parse(Uren.Replace(&quot;,&quot;, &quot;.&quot;), Globalization.CultureInfo.InvariantCulture) - Double.Parse(DummyUren.Replace(&quot;,&quot;, &quot;.&quot;), Globalization.CultureInfo.InvariantCulture)).ToString(&quot;0.00&quot;) &amp; vbNewLine &amp;&#xA;    &quot;Is buiten marge: &quot; &amp; (&#xA;        Double.Parse(Uren.Replace(&quot;,&quot;, &quot;.&quot;), Globalization.CultureInfo.InvariantCulture) &lt; Double.Parse(DummyUren.Replace(&quot;,&quot;, &quot;.&quot;), Globalization.CultureInfo.InvariantCulture) - Double.Parse(MinimaleAfwijking.Replace(&quot;,&quot;, &quot;.&quot;), Globalization.CultureInfo.InvariantCulture) OrElse&#xA;        Double.Parse(Uren.Replace(&quot;,&quot;, &quot;.&quot;), Globalization.CultureInfo.InvariantCulture) &gt; Double.Parse(DummyUren.Replace(&quot;,&quot;, &quot;.&quot;), Globalization.CultureInfo.InvariantCulture) + Double.Parse(MaximaleAfwijking.Replace(&quot;,&quot;, &quot;.&quot;), Globalization.CultureInfo.InvariantCulture)&#xA;    ).ToString(),&#xA;    &quot;Log niet mogelijk – lege of ongeldige invoerwaarden.&quot;&#xA;)]" />
+                        <If Condition="[CDbl(Uren.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) &lt; CDbl(DummyUren.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) - CDbl(MinimaleAfwijking.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) OrElse CDbl(Uren.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) &gt; CDbl(DummyUren.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) + CDbl(MaximaleAfwijking.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;))]" DisplayName="If Uren is outside Vallue marge" sap:VirtualizedContainerService.HintSize="530,457" sap2010:WorkflowViewState.IdRef="If_3">
+                          <If.Then>
+                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,193" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_4">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[Uren]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">[Uren + " (!)"]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Sequence>
+                          </If.Then>
+                          <If.Else>
+                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,103" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </Sequence>
+                          </If.Else>
+                        </If>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </Sequence>
+            </ui:IfElseIfBlock.Then>
+          </ui:IfElseIfBlock>
+          <ui:IfElseIfBlock BlockType="ElseIf" Condition="[ReferentieSheet.contains(&quot;x&quot;) and ControlerenMet.contains(&quot;2. Frezen&quot;)]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_2">
+            <ui:IfElseIfBlock.Then>
+              <Sequence DisplayName="Ref sheet 2" sap:VirtualizedContainerService.HintSize="750,1628" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Sequence DisplayName="2. Frezen" sap:VirtualizedContainerService.HintSize="688,1540" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="626,173" sap2010:WorkflowViewState.IdRef="LogMessage_15" Message="[&quot;Index found: &quot; &amp; dt_2Frezen.AsEnumerable().ToList().FindIndex(Function(row) _&#xA;    IsNumeric(cavities.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) AndAlso _&#xA;    Not String.IsNullOrEmpty(row(&quot;Caviteiten Van&quot;).ToString.Trim) AndAlso IsNumeric(row(&quot;Caviteiten Van&quot;).ToString.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) AndAlso _&#xA;    (String.IsNullOrEmpty(row(&quot;Caviteiten Tot&quot;).ToString.Trim) OrElse IsNumeric(row(&quot;Caviteiten Tot&quot;).ToString.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;))) AndAlso _&#xA;    CDbl(cavities.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) &gt;= CDbl(row(&quot;Caviteiten Van&quot;).ToString.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) AndAlso _&#xA;    (String.IsNullOrEmpty(row(&quot;Caviteiten Tot&quot;).ToString.Trim) OrElse CDbl(cavities.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) &lt;= CDbl(row(&quot;Caviteiten Tot&quot;).ToString.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)))&#xA;)]" />
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="626,173" sap2010:WorkflowViewState.IdRef="LogMessage_16" Message="[&quot;Value found: &quot; &amp; If(dt_2Frezen.AsEnumerable().ToList().FindIndex(Function(row) _&#xA;    Not String.IsNullOrWhiteSpace(cavities) AndAlso _&#xA;    Not String.IsNullOrWhiteSpace(row(&quot;Caviteiten Van&quot;).ToString) AndAlso _&#xA;    CDbl(cavities.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) &gt;= CDbl(row(&quot;Caviteiten Van&quot;).ToString.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) AndAlso _&#xA;    (String.IsNullOrWhiteSpace(row(&quot;Caviteiten Tot&quot;).ToString) OrElse CDbl(cavities.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) &lt;= CDbl(row(&quot;Caviteiten Tot&quot;).ToString.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;))) _&#xA;) &gt;= 0, dt_2Frezen(dt_2Frezen.AsEnumerable().ToList().FindIndex(Function(row) _&#xA;    Not String.IsNullOrWhiteSpace(cavities) AndAlso _&#xA;    Not String.IsNullOrWhiteSpace(row(&quot;Caviteiten Van&quot;).ToString) AndAlso _&#xA;    CDbl(cavities.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) &gt;= CDbl(row(&quot;Caviteiten Van&quot;).ToString.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) AndAlso _&#xA;    (String.IsNullOrWhiteSpace(row(&quot;Caviteiten Tot&quot;).ToString) OrElse CDbl(cavities.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) &lt;= CDbl(row(&quot;Caviteiten Tot&quot;).ToString.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;))) _&#xA;))(&quot;Minimale Afwijking In Procent&quot;).ToString, &quot;No match found&quot;)]" />
+                  <If Condition="[dt_2Frezen.AsEnumerable().ToList().FindIndex(Function(row) _&#xA;    IsNumeric(cavities.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) AndAlso _&#xA;    Not String.IsNullOrEmpty(row(&quot;Caviteiten Van&quot;).ToString.Trim) AndAlso IsNumeric(row(&quot;Caviteiten Van&quot;).ToString.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) AndAlso _&#xA;    (String.IsNullOrEmpty(row(&quot;Caviteiten Tot&quot;).ToString.Trim) OrElse IsNumeric(row(&quot;Caviteiten Tot&quot;).ToString.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;))) AndAlso _&#xA;    CDbl(cavities.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) &gt;= CDbl(row(&quot;Caviteiten Van&quot;).ToString.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) AndAlso _&#xA;    (String.IsNullOrEmpty(row(&quot;Caviteiten Tot&quot;).ToString.Trim) OrElse CDbl(cavities.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) &lt;= CDbl(row(&quot;Caviteiten Tot&quot;).ToString.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)))&#xA;) &gt; -1]" DisplayName="If match is found" sap:VirtualizedContainerService.HintSize="626,1083" sap2010:WorkflowViewState.IdRef="If_4">
+                    <If.Then>
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="592,897" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="530,179" sap2010:WorkflowViewState.IdRef="MultipleAssign_4">
+                          <ui:MultipleAssign.AssignOperations>
+                            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_24">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[MinimaleAfwijkingPercentage]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String" xml:space="preserve">[dt_2Frezen(dt_2Frezen.AsEnumerable().ToList().FindIndex(Function(row) _
+    Not String.IsNullOrWhiteSpace(cavities) AndAlso _
+    Not String.IsNullOrWhiteSpace(row("Caviteiten Van").ToString) AndAlso _
+    CDbl(cavities.Replace(".", "").Replace(",", ".")) &gt;= CDbl(row("Caviteiten Van").ToString.Replace(".", "").Replace(",", ".")) AndAlso _
+    (String.IsNullOrWhiteSpace(row("Caviteiten Tot").ToString) OrElse CDbl(cavities.Replace(".", "").Replace(",", ".")) &lt;= CDbl(row("Caviteiten Tot").ToString.Replace(".", "").Replace(",", "."))) _
+))("Minimale Afwijking In Procent").ToString]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_25">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:String">[MaximaleAfwijkingPercentage]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:String" xml:space="preserve">[dt_2Frezen(dt_2Frezen.AsEnumerable().ToList().FindIndex(Function(row) _
+    Not String.IsNullOrWhiteSpace(cavities) AndAlso _
+    Not String.IsNullOrWhiteSpace(row("Caviteiten Van").ToString) AndAlso _
+    CDbl(cavities.Replace(".", "").Replace(",", ".")) &gt;= CDbl(row("Caviteiten Van").ToString.Replace(".", "").Replace(",", ".")) AndAlso _
+    (String.IsNullOrWhiteSpace(row("Caviteiten Tot").ToString) OrElse CDbl(cavities.Replace(".", "").Replace(",", ".")) &lt;= CDbl(row("Caviteiten Tot").ToString.Replace(".", "").Replace(",", "."))) _
+))("Maximale Afwijking In Procent").ToString]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                            </scg:List>
+                          </ui:MultipleAssign.AssignOperations>
+                        </ui:MultipleAssign>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="530,173" sap2010:WorkflowViewState.IdRef="LogMessage_13" Message="[If(&#xA;  Not String.IsNullOrWhiteSpace(Uren) AndAlso&#xA;  Not String.IsNullOrWhiteSpace(DummyUren) AndAlso&#xA;  Not String.IsNullOrWhiteSpace(MinimaleAfwijkingPercentage) AndAlso&#xA;  Not String.IsNullOrWhiteSpace(MaximaleAfwijkingPercentage),&#xA;  &quot;Uren: &quot; &amp; Uren &amp; &quot; | DummyUren: &quot; &amp; DummyUren &amp; &quot; | Min%: &quot; &amp; MinimaleAfwijkingPercentage &amp; &quot; | Max%: &quot; &amp; MaximaleAfwijkingPercentage &amp; vbNewLine &amp;&#xA;  &quot;Ondergrens: &quot; &amp; (CDbl(DummyUren.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) * (1 - CDbl(MinimaleAfwijkingPercentage.Replace(&quot;,&quot;, &quot;.&quot;)))).ToString(&quot;0.00&quot;) &amp;&#xA;  &quot; | Bovengrens: &quot; &amp; (CDbl(DummyUren.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) * (1 + CDbl(MaximaleAfwijkingPercentage.Replace(&quot;,&quot;, &quot;.&quot;)))).ToString(&quot;0.00&quot;) &amp; vbNewLine &amp;&#xA;  &quot;Afwijking in %: &quot; &amp; ((CDbl(Uren.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) - CDbl(DummyUren.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;))) / CDbl(DummyUren.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) * 100).ToString(&quot;0.00&quot;) &amp; &quot;%&quot; &amp; vbNewLine &amp;&#xA;  &quot;Ist buiten marge: &quot; &amp; ((CDbl(Uren.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) &lt; CDbl(DummyUren.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) * (1 - CDbl(MinimaleAfwijkingPercentage.Replace(&quot;,&quot;, &quot;.&quot;))) OrElse CDbl(Uren.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) &gt; CDbl(DummyUren.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) * (1 + CDbl(MaximaleAfwijkingPercentage.Replace(&quot;,&quot;, &quot;.&quot;))))).ToString(),&#xA;  &quot;Log niet mogelijk – lege of ongeldige invoerwaarden.&quot;&#xA;)]" />
+                        <If Condition="[If(&#xA;  Not String.IsNullOrWhiteSpace(Uren) AndAlso&#xA;  Not String.IsNullOrWhiteSpace(DummyUren) AndAlso&#xA;  Not String.IsNullOrWhiteSpace(MinimaleAfwijkingPercentage) AndAlso&#xA;  Not String.IsNullOrWhiteSpace(MaximaleAfwijkingPercentage),&#xA;  CDbl(Uren.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) &lt; CDbl(DummyUren.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) * (1 - CDbl(MinimaleAfwijkingPercentage.Replace(&quot;,&quot;, &quot;.&quot;))) OrElse&#xA;  CDbl(Uren.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) &gt; CDbl(DummyUren.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) * (1 + CDbl(MaximaleAfwijkingPercentage.Replace(&quot;,&quot;, &quot;.&quot;))),&#xA;  False&#xA;)]" DisplayName="If Uren is outside Percentage marge" sap:VirtualizedContainerService.HintSize="530,457" sap2010:WorkflowViewState.IdRef="If_2">
+                          <If.Then>
+                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,193" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_3">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:String">[Uren]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:String">[Uren + " (!)"]</InArgument>
+                                </Assign.Value>
+                              </Assign>
+                            </Sequence>
+                          </If.Then>
+                          <If.Else>
+                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,103" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </Sequence>
+                          </If.Else>
+                        </If>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </Sequence>
+            </ui:IfElseIfBlock.Then>
+          </ui:IfElseIfBlock>
+        </sc:BindingList>
+      </ui:IfElseIfV2.ElseIfs>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:IfElseIfV2.Then>
+        <Sequence DisplayName="Extra Uren" sap:VirtualizedContainerService.HintSize="592,781" sap2010:WorkflowViewState.IdRef="Sequence_7">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="x:String" Name="ExtraUren" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="530,57" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+            <ui:CommentOut.Body>
+              <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="496,193" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_2">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[ExtraUren]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[MaxToegestaneAfwijking]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Sequence>
+            </ui:CommentOut.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:CommentOut>
+          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="530,179" sap2010:WorkflowViewState.IdRef="MultipleAssign_7">
+            <ui:MultipleAssign.AssignOperations>
+              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_30">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[MinimaleAfwijking]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">[MaxToegestaneAfwijking]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_31">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[MaximaleAfwijking]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">[MaxToegestaneAfwijking]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+              </scg:List>
+            </ui:MultipleAssign.AssignOperations>
+          </ui:MultipleAssign>
+          <If Condition="[CDbl(Uren.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) &lt; CDbl(DummyUren.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) - CDbl(MinimaleAfwijking.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) OrElse CDbl(Uren.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) &gt; CDbl(DummyUren.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;)) + CDbl(MaximaleAfwijking.Replace(&quot;.&quot;, &quot;&quot;).Replace(&quot;,&quot;, &quot;.&quot;))]" DisplayName="If Uren is outside Vallue marge" sap:VirtualizedContainerService.HintSize="530,457" sap2010:WorkflowViewState.IdRef="If_7">
+            <If.Then>
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,193" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign sap:VirtualizedContainerService.HintSize="434,105" sap2010:WorkflowViewState.IdRef="Assign_6">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[Uren]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[Uren + " (!)"]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,103" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Sequence>
+            </If.Else>
+          </If>
+        </Sequence>
+      </ui:IfElseIfV2.Then>
+    </ui:IfElseIfV2>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="784,164" sap2010:WorkflowViewState.IdRef="LogMessage_10" Message="[&quot;MinimaleAfwijking: &quot; + MinimaleAfwijking + Environment.newline +&#xA;&quot;MaximaleAfwijking: &quot; + MaximaleAfwijking + Environment.newline +&#xA;&quot;MinimaleAfwijkingPercentage: &quot; + MinimaleAfwijkingPercentage + Environment.newline +&#xA;&quot;MaximaleAfwijkingPercentage: &quot; + MaximaleAfwijkingPercentage + Environment.newline +&#xA;&quot;Extrasteltijd: &quot; + ExtraSteltijd]" />
+  </Sequence>
+</Activity>

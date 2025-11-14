@@ -1,0 +1,414 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="_1_4_2_Retrieve_and_fill_Bewerkingen_Entity_Data" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:p="clr-namespace:Prepbot_Fijn_Design_Proces_A;assembly=DataService.Prepbot_Fijn_Design_Proces_A" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:uda="clr-namespace:UiPath.DataService.Activities;assembly=UiPath.DataService.Activities.Core" xmlns:udam="clr-namespace:UiPath.DataService.Activities.Models;assembly=UiPath.DataService.Activities.Core" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="DatabaseConnection" Type="InArgument(ui:DatabaseConnection)" />
+    <x:Property Name="Alternative_ProdHeaderDossierCode" Type="InArgument(x:String)" />
+    <x:Property Name="PDAlternativeOutputID" Type="InArgument(p:PDAlternative)" />
+    <x:Property Name="Quantity" Type="InArgument(x:String)" />
+  </x:Members>
+  <this:_1_4_2_Retrieve_and_fill_Bewerkingen_Entity_Data.PDAlternativeOutputID>
+    <InArgument x:TypeArguments="p:PDAlternative" />
+  </this:_1_4_2_Retrieve_and_fill_Bewerkingen_Entity_Data.PDAlternativeOutputID>
+  <this:_1_4_2_Retrieve_and_fill_Bewerkingen_Entity_Data.Quantity>
+    <InArgument x:TypeArguments="x:String" />
+  </this:_1_4_2_Retrieve_and_fill_Bewerkingen_Entity_Data.Quantity>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1978,1599</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>_1_4_2_Retrieve_and_fill_Bewerkingen_Entity_Data_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>Prepbot_Fijn_Design_Proces_A</x:String>
+      <x:String>UiPath.DataService.Definition</x:String>
+      <x:String>UiPath.DataService.Activities</x:String>
+      <x:String>System.Runtime.CompilerServices</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Database</x:String>
+      <x:String>UiPath.Database.Activities</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>UiPath.DataService.Activities.Models</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>netstandard</AssemblyReference>
+      <AssemblyReference>DataService.Prepbot_Fijn_Design_Proces_A</AssemblyReference>
+      <AssemblyReference>UiPath.DataService.Definition</AssemblyReference>
+      <AssemblyReference>UiPath.DataService.Activities.Core</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Runtime.CompilerServices.VisualC</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Persistence.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>UiPath.Database</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>C96CF6A7695_Bewerkin.33u2x1v3cTS17xBhvivS2J4</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="_1_4_2_Retrieve_and_fill_Bewerkingen_Entity_Data" sap:VirtualizedContainerService.HintSize="1007.3333333333333,2208.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_AllBewerkingRowsOfPD" />
+      <Variable x:TypeArguments="x:Int32" Name="index">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="SourceIdRef">ForEachRow_1</x:String>
+            <x:String x:Key="SourcePropertyName">CurrentIndex</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </Variable>
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence DisplayName="Retrieve All Bewerking Rows" sap:VirtualizedContainerService.HintSize="547.3333333333334,407.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:LogMessage DisplayName="Log &quot;Getting All Bewerking Rows Of PD..&quot;" sap:VirtualizedContainerService.HintSize="416,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="{x:Null}" Message="[&quot;Getting All Bewerking Rows Of PD..&quot;]" />
+      <ui:ExecuteQuery ConnectionSecureString="{x:Null}" ConnectionString="{x:Null}" ContinueOnError="{x:Null}" DataTable="[dt_AllBewerkingRowsOfPD]" DisplayName="Get All Bewerking Rows Of PD" ExistingDbConnection="[DatabaseConnection]" sap:VirtualizedContainerService.HintSize="416,138.66666666666666" sap2010:WorkflowViewState.IdRef="ExecuteQuery_1" ProviderName="{x:Null}" Sql="[GetAllBewerkingRowsOfPDQuery.replace(&quot;{ProdHeaderDossierCode}&quot;,Alternative_ProdHeaderDossierCode).replace(&quot;{QuantityNew}&quot;,Quantity)]" TimeoutMS="{x:Null}">
+        <ui:ExecuteQuery.Parameters>
+          <scg:Dictionary x:TypeArguments="x:String, Argument" />
+        </ui:ExecuteQuery.Parameters>
+      </ui:ExecuteQuery>
+    </Sequence>
+    <Sequence DisplayName="Add Data to Bewerkingen Entity" sap:VirtualizedContainerService.HintSize="547.3333333333334,1778.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[index]" DataTable="[dt_AllBewerkingRowsOfPD]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="513.3333333333334,1696" sap2010:WorkflowViewState.IdRef="ForEachRow_1" MaxIterations="{x:Null}" Values="{x:Null}">
+        <ui:ForEachRow.Body>
+          <ActivityAction x:TypeArguments="sd:DataRow">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="511.3333333333333,1521.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_4">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="x:Boolean" Name="BewerkingTussenvoegen" />
+                <Variable x:TypeArguments="x:Decimal" Name="Regelnummer" />
+                <Variable x:TypeArguments="x:String" Name="Aantal" />
+                <Variable x:TypeArguments="x:String" Name="Capaciteitsgroep" />
+                <Variable x:TypeArguments="s:Guid" Name="PDnummer" />
+                <Variable x:TypeArguments="x:String" Name="Machinecyclus" />
+                <Variable x:TypeArguments="x:String" Name="MachineUrenAfwijkingTovDummy" />
+                <Variable x:TypeArguments="x:String" Name="ManUrenAfwijkingTovDummy" />
+                <Variable x:TypeArguments="x:String" Name="Mancyclus" />
+                <Variable x:TypeArguments="x:String" Name="Onderdeel" />
+                <Variable x:TypeArguments="x:String" Name="MemoNew" />
+                <Variable x:TypeArguments="x:String" Name="MemoOld" />
+                <Variable x:TypeArguments="x:Decimal" Name="VolgendeBewerking" />
+                <Variable x:TypeArguments="x:String" Name="DummyMachinecyclus" />
+                <Variable x:TypeArguments="x:String" Name="DummyMancyclus" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="477.3333333333333,578.6666666666666" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                <ui:MultipleAssign.AssignOperations>
+                  <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:Boolean">[BewerkingTussenvoegen]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:Boolean">[convert.ToBoolean(currentrow("Tussenvoegen").tostring)]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="s:Guid">[PDnummer]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="s:Guid">[PDAlternativeOutputID.id]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:Decimal">[Regelnummer]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:Decimal">[convert.ToDecimal(currentrow("LineNr").tostring)]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_13">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:Decimal">[VolgendeBewerking]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:Decimal">[convert.ToDecimal(currentrow("Next_LineNr").tostring)]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[Aantal]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[currentrow("Qty").tostring]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[Capaciteitsgroep]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[currentrow("MachGrpCode").tostring]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[Machinecyclus]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[currentrow("MachineUren").tostring]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[MachineUrenAfwijkingTovDummy]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[currentrow("MachineUrenPercentageVerschil").tostring]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[Mancyclus]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[currentrow("ManUren").tostring]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[ManUrenAfwijkingTovDummy]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[currentrow("ManUrenPercentageVerschil").tostring]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[MemoNew]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[currentrow("Memo").tostring]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[MemoOld]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[currentrow("Memo").tostring]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[Onderdeel]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[currentrow("ProdBOOPartDescription").tostring]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_14">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[DummyMachinecyclus]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[currentrow("Dummy_MachineUren").tostring]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                    <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_15">
+                      <ui:AssignOperation.To>
+                        <OutArgument x:TypeArguments="x:String">[DummyMancyclus]</OutArgument>
+                      </ui:AssignOperation.To>
+                      <ui:AssignOperation.Value>
+                        <InArgument x:TypeArguments="x:String">[currentrow("Dummy_ManUren").tostring]</InArgument>
+                      </ui:AssignOperation.Value>
+                    </ui:AssignOperation>
+                  </scg:List>
+                </ui:MultipleAssign.AssignOperations>
+              </ui:MultipleAssign>
+              <uda:CreateEntityRecord x:TypeArguments="p:Bewerkingen" ContinueOnError="False" DisplayName="Create Entity Record" EntityId="f1a8822f-3a2f-f011-8b3d-002248997c1b" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="477.3333333333333,882.6666666666666" sap2010:WorkflowViewState.IdRef="CreateEntityRecord`1_1" InputEntity="{x:Null}" InputEntityInFieldView="[new Prepbot_Fijn_Design_Proces_A.Bewerkingen() With {  .PDnummer = new PDAlternative() With { .Id = PDnummer },  .Regelnummer = Regelnummer,  .Aantal = Aantal,  .Capaciteitsgroep = Capaciteitsgroep,  .DummyMachinecyclus = DummyMachinecyclus,  .DummyMancyclus = DummyMancyclus,  .Machinecyclus = Machinecyclus,  .MachineUrenAfwijkingTovDummy = MachineUrenAfwijkingTovDummy,  .Mancyclus = Mancyclus,  .ManUrenAfwijkingTovDummy = ManUrenAfwijkingTovDummy,  .Memonieuw = MemoNew,  .Memooud = MemoOld,  .Onderdeel = Onderdeel,  .VolgendeBewerking = VolgendeBewerking }]" IsInRecordView="{x:Null}" OutputEntity="{x:Null}" TimeoutInMs="30000" VisibleDynamicPropertiesInfo="{x:Null}">
+                <uda:CreateEntityRecord.State>
+                  <udam:RecordState RequiredFieldCount="2">
+                    <udam:RecordState.SelectedFields>
+                      <scg:List x:TypeArguments="udam:DynamicEntityField" Capacity="14">
+                        <udam:DynamicEntityField Id="448310ef-3a2f-f011-8b3d-002248997c1b" IsRequired="True" Name="PDnummer">
+                          <udam:DynamicEntityField.ArgumentValue>
+                            <InArgument x:TypeArguments="s:Guid">[PDnummer]</InArgument>
+                          </udam:DynamicEntityField.ArgumentValue>
+                        </udam:DynamicEntityField>
+                        <udam:DynamicEntityField Id="c4ee6e40-3a2f-f011-8b3d-002248997c1b" IsRequired="True" Name="Regelnummer">
+                          <udam:DynamicEntityField.ArgumentValue>
+                            <InArgument x:TypeArguments="x:Decimal">[Regelnummer]</InArgument>
+                          </udam:DynamicEntityField.ArgumentValue>
+                        </udam:DynamicEntityField>
+                        <udam:DynamicEntityField Id="b5b08e8b-3a2f-f011-8b3d-002248997c1b" Name="Aantal">
+                          <udam:DynamicEntityField.ArgumentValue>
+                            <InArgument x:TypeArguments="x:String">[Aantal]</InArgument>
+                          </udam:DynamicEntityField.ArgumentValue>
+                        </udam:DynamicEntityField>
+                        <udam:DynamicEntityField Id="d4491c3f-1130-f011-8b3d-002248997c1b" Name="Capaciteitsgroep">
+                          <udam:DynamicEntityField.ArgumentValue>
+                            <InArgument x:TypeArguments="x:String">[Capaciteitsgroep]</InArgument>
+                          </udam:DynamicEntityField.ArgumentValue>
+                        </udam:DynamicEntityField>
+                        <udam:DynamicEntityField Id="556637c2-7940-f011-a5f1-0022489e662b" Name="DummyMachinecyclus">
+                          <udam:DynamicEntityField.ArgumentValue>
+                            <InArgument x:TypeArguments="x:String">[DummyMachinecyclus]</InArgument>
+                          </udam:DynamicEntityField.ArgumentValue>
+                        </udam:DynamicEntityField>
+                        <udam:DynamicEntityField Id="cd37a4cb-7940-f011-a5f1-0022489e662b" Name="DummyMancyclus">
+                          <udam:DynamicEntityField.ArgumentValue>
+                            <InArgument x:TypeArguments="x:String">[DummyMancyclus]</InArgument>
+                          </udam:DynamicEntityField.ArgumentValue>
+                        </udam:DynamicEntityField>
+                        <udam:DynamicEntityField Id="00646c9f-3a2f-f011-8b3d-002248997c1b" Name="Machinecyclus">
+                          <udam:DynamicEntityField.ArgumentValue>
+                            <InArgument x:TypeArguments="x:String">[Machinecyclus]</InArgument>
+                          </udam:DynamicEntityField.ArgumentValue>
+                        </udam:DynamicEntityField>
+                        <udam:DynamicEntityField Id="6c0ff539-b634-f011-8b3d-002248997c1b" Name="MachineUrenAfwijkingTovDummy">
+                          <udam:DynamicEntityField.ArgumentValue>
+                            <InArgument x:TypeArguments="x:String">[MachineUrenAfwijkingTovDummy]</InArgument>
+                          </udam:DynamicEntityField.ArgumentValue>
+                        </udam:DynamicEntityField>
+                        <udam:DynamicEntityField Id="01646c9f-3a2f-f011-8b3d-002248997c1b" Name="Mancyclus">
+                          <udam:DynamicEntityField.ArgumentValue>
+                            <InArgument x:TypeArguments="x:String">[Mancyclus]</InArgument>
+                          </udam:DynamicEntityField.ArgumentValue>
+                        </udam:DynamicEntityField>
+                        <udam:DynamicEntityField Id="b23cc242-b634-f011-8b3d-002248997c1b" Name="ManUrenAfwijkingTovDummy">
+                          <udam:DynamicEntityField.ArgumentValue>
+                            <InArgument x:TypeArguments="x:String">[ManUrenAfwijkingTovDummy]</InArgument>
+                          </udam:DynamicEntityField.ArgumentValue>
+                        </udam:DynamicEntityField>
+                        <udam:DynamicEntityField Id="1dd9e9b3-3a2f-f011-8b3d-002248997c1b" Name="Memonieuw">
+                          <udam:DynamicEntityField.ArgumentValue>
+                            <InArgument x:TypeArguments="x:String">[MemoNew]</InArgument>
+                          </udam:DynamicEntityField.ArgumentValue>
+                        </udam:DynamicEntityField>
+                        <udam:DynamicEntityField Id="592735ad-3a2f-f011-8b3d-002248997c1b" Name="Memooud">
+                          <udam:DynamicEntityField.ArgumentValue>
+                            <InArgument x:TypeArguments="x:String">[MemoOld]</InArgument>
+                          </udam:DynamicEntityField.ArgumentValue>
+                        </udam:DynamicEntityField>
+                        <udam:DynamicEntityField Id="b4b08e8b-3a2f-f011-8b3d-002248997c1b" Name="Onderdeel">
+                          <udam:DynamicEntityField.ArgumentValue>
+                            <InArgument x:TypeArguments="x:String">[Onderdeel]</InArgument>
+                          </udam:DynamicEntityField.ArgumentValue>
+                        </udam:DynamicEntityField>
+                        <udam:DynamicEntityField Id="ac9bb119-ec36-f011-a5f1-000d3ab1ee90" Name="VolgendeBewerking">
+                          <udam:DynamicEntityField.ArgumentValue>
+                            <InArgument x:TypeArguments="x:Decimal">[VolgendeBewerking]</InArgument>
+                          </udam:DynamicEntityField.ArgumentValue>
+                        </udam:DynamicEntityField>
+                      </scg:List>
+                    </udam:RecordState.SelectedFields>
+                  </udam:RecordState>
+                </uda:CreateEntityRecord.State>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </uda:CreateEntityRecord>
+            </Sequence>
+          </ActivityAction>
+        </ui:ForEachRow.Body>
+      </ui:ForEachRow>
+    </Sequence>
+  </Sequence>
+</Activity>

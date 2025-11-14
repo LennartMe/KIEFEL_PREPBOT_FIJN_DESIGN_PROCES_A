@@ -1,0 +1,578 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="_1_1_1_DraaiBewerkingSequence" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="PartMeasure" Type="InArgument(x:Double)" />
+    <x:Property Name="ArticleExistsInControleDummyStaflader" Type="InArgument(x:Boolean)" />
+    <x:Property Name="dt_PD_Header_Info" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="Current_ProdHeaderDossierCode" Type="InArgument(x:String)" />
+    <x:Property Name="DatabaseConnection" Type="InArgument(ui:DatabaseConnection)" />
+    <x:Property Name="ToBeQuantityPD" Type="InArgument(x:Int32)" />
+    <x:Property Name="ToBeQuantityStaflader" Type="InArgument(x:Int32)" />
+    <x:Property Name="ToBeLengthStaflader" Type="InArgument(x:Int32)" />
+    <x:Property Name="Material" Type="InArgument(x:String)" />
+    <x:Property Name="MaterialLength" Type="InArgument(x:Double)" />
+    <x:Property Name="CurrentStafLength" Type="InArgument(x:Double)" />
+    <x:Property Name="CurrentStafQty" Type="InArgument(x:Double)" />
+    <x:Property Name="PartMeasureHeight" Type="InArgument(x:Double)" />
+  </x:Members>
+  <this:_1_1_1_DraaiBewerkingSequence.MaterialLength>
+    <InArgument x:TypeArguments="x:Double" />
+  </this:_1_1_1_DraaiBewerkingSequence.MaterialLength>
+  <sap:VirtualizedContainerService.HintSize>1254,6351</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Database</x:String>
+      <x:String>UiPath.Database.Activities</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>System.Globalization</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.Database</AssemblyReference>
+      <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap:VirtualizedContainerService.HintSize="881.3333333333333,3812.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_39">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="strRawQuantityMaxLengthNeeded" />
+      <Variable x:TypeArguments="x:String" Name="MaxLengthStafladerNvt" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message &quot;Draai bewerking Sequence&quot;" sap:VirtualizedContainerService.HintSize="596,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_32" Message="[&quot;Draai bewerking Sequence&quot;]" />
+    <Assign DisplayName="Step Cz3: Assign ArticleExistsInControleDummyStaflader" sap:VirtualizedContainerService.HintSize="596,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_7">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Boolean">[ArticleExistsInControleDummyStaflader]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Boolean" xml:space="preserve">[dt_ControleDummyStaflader.AsEnumerable().Any(Function(row) row("Artikelnr").ToString().Trim().ToLower() = dt_PD_Header_Info.Rows(0)("Partcode").ToString().Trim().ToLower()) _
+AndAlso 
+dt_ControleDummyStaflader.AsEnumerable().Any(Function(row) row("Omschrijving").ToString().Trim().ToLower() = dt_PD_Header_Info.Rows(0)("Description").ToString().Trim().ToLower())]</InArgument>
+      </Assign.Value>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </Assign>
+    <Assign DisplayName="Step Cz3: Assign ArticleExistsInControleDummyStaflader TEST" sap:VirtualizedContainerService.HintSize="596,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_21">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Boolean">[ArticleExistsInControleDummyStaflader]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Boolean">[dt_ControleDummyStaflader.AsEnumerable().Any(Function(row) row("Artikelnr").ToString().Trim().ToLower() = dt_PD_Header_Info.Rows(0)("Partcode").ToString().Trim().ToLower() and row("Staflader beoordelen?").ToString().Trim().ToLower() = "ja")]</InArgument>
+      </Assign.Value>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </Assign>
+    <ui:LogMessage DisplayName="Step Cz3: Log Article match info" sap:VirtualizedContainerService.HintSize="596,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_18" Message="[(If(dt_ControleDummyStaflader.AsEnumerable().Any(Function(row) row(&quot;Artikelnr&quot;).ToString().Trim().ToLower() = dt_PD_Header_Info.Rows(0)(&quot;Partcode&quot;).ToString().Trim().ToLower()) _&#xA;AndAlso &#xA;dt_ControleDummyStaflader.AsEnumerable().Any(Function(row) row(&quot;Omschrijving&quot;).ToString().Trim().ToLower() = dt_PD_Header_Info.Rows(0)(&quot;Description&quot;).ToString().Trim().ToLower()), &#xA;&quot;Step Cz3: Artikel: '&quot; &amp; dt_PD_Header_Info.rows(0)(&quot;Partcode&quot;).ToString().trim &amp; &quot;' Met beschrijving: '&quot; &amp; dt_PD_Header_Info.rows(0)(&quot;Description&quot;).ToString().trim &amp; &quot;' komt voor op rij &quot; &amp; convert.toint32(dt_ControleDummyStaflader.AsEnumerable().ToList().FindIndex(Function(row) row(&quot;Artikelnr&quot;).ToString().trim.tolower = dt_PD_Header_Info.rows(0)(&quot;Partcode&quot;).ToString().trim.tolower AndAlso row(&quot;Omschrijving&quot;).ToString().trim.tolower = dt_PD_Header_Info.Rows(0)(&quot;Description&quot;).ToString().trim.tolower)+2).tostring, 'adding + 2 because Excel Data starts at row 2 and in code the same row starts at 0&#xA;&quot;Step Cz3: Artikel: '&quot; &amp; dt_PD_Header_Info.rows(0)(&quot;Partcode&quot;).ToString().trim &amp; &quot;' Met beschrijving: '&quot; &amp; dt_PD_Header_Info.rows(0)(&quot;Description&quot;).ToString().trim &amp; &quot;' komt niet voor in de collectie&quot;)) _&#xA;+ &#xA;&quot; And PartMeasure: &quot; + If(PartMeasure &lt;= MaxStafSetting,PartMeasure.ToString +&quot; &lt;= 70 is True&quot;,PartMeasure.ToString +&quot; &lt;= &quot;+MaxStafSetting.tostring+&quot; is False&quot;)]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:LogMessage>
+    <If Condition="[ArticleExistsInControleDummyStaflader and PartMeasure &lt;= MaxStafSetting]" DisplayName="Step Cz3 ArticleExistsInControleDummyStaflader" sap:VirtualizedContainerService.HintSize="782,5117.333333333333" sap2010:WorkflowViewState.IdRef="If_7">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="780,4140.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_17">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="sd:DataTable" Name="dt_ProductieCalculatieArtikelen" />
+          </Sequence.Variables>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" DataTable="[dt_ProductieCalculatieArtikelen]" DisplayName="Run Query: ProductiecalculatieArtikelenQuery" ExistingDbConnection="[DatabaseConnection]" sap:VirtualizedContainerService.HintSize="746,148" sap2010:WorkflowViewState.IdRef="ExecuteQuery_4" Sql="[ProductiecalculatieArtikelenQuery.Replace(&quot;{ProdHeaderDossierCode}&quot;, Current_ProdHeaderDossierCode)]">
+            <ui:ExecuteQuery.Parameters>
+              <scg:Dictionary x:TypeArguments="x:String, Argument" />
+            </ui:ExecuteQuery.Parameters>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:ExecuteQuery>
+          <ui:LogMessage DisplayName="Step Cz4: Log Checking for Article match" sap:VirtualizedContainerService.HintSize="746,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_21" Message="[&quot;Step Cz4: Checking for Article match on Materiaal PD = Subpartcode in Productiecalculatie artikelen&quot;]">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:LogMessage>
+          <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_ProductieCalculatieArtikelen]" DisplayName="For Each Row in dt_ProductieCalculatieArtikelen" sap:VirtualizedContainerService.HintSize="746,3756" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+            <ui:ForEachRow.Body>
+              <ActivityAction x:TypeArguments="sd:DataRow">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="sd:DataRow" Name="ArticleRow" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="744,3581.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:Boolean" Name="MatchFound" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign DisplayName="Reset MatchFound" sap:VirtualizedContainerService.HintSize="710,57.333333333333336" sap2010:WorkflowViewState.IdRef="Assign_10">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Boolean">[MatchFound]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Boolean">False</InArgument>
+                    </Assign.Value>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Assign>
+                  <If Condition="[Material.trim.tolower.tostring = ArticleRow(&quot;Stand&quot;).tostring.trim.tolower.tostring]" DisplayName="Check For matching row." sap:VirtualizedContainerService.HintSize="710,3464" sap2010:WorkflowViewState.IdRef="If_8">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="708,3242.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Warn &quot;Need to add a check to exclude 'vervallen' Rows&quot;" sap:VirtualizedContainerService.HintSize="674,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_19" Level="Warn" Message="[&quot;Need to add a check to exclude 'vervallen' Rows (Out of scope)&quot;]">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:LogMessage>
+                        <ui:LogMessage DisplayName="Log Looking for a match" sap:VirtualizedContainerService.HintSize="674,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_25" Message="[&quot;Looking for a match in Excel for ProdHeaderDossierCode: &quot; + ArticleRow(&quot;ProdHeaderDossierCode&quot;).tostring + Environment.newline + '&quot;Artikelgroep: &quot; + ArticleRow(&quot;PartPartGrpCode&quot;).tostring + Environment.newline +&#xD;&#xA;&quot;Norm: &quot; + ArticleRow(&quot;Stand&quot;).tostring + Environment.newline + '&quot;Materiaal: &quot; + ArticleRow(&quot;BasicMat&quot;).tostring + Environment.newline +&#xD;&#xA;&quot;Maat: &quot; + PartMeasure.ToString + Environment.newline +&#xD;&#xA;&quot;Omschijving: &quot; + ArticleRow(&quot;Description&quot;).tostring]">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:LogMessage>
+                        <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_ControleMateriaalStaflader]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="674,2829.3333333333335" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
+                          <ui:ForEachRow.Body>
+                            <ActivityAction x:TypeArguments="sd:DataRow">
+                              <ActivityAction.Argument>
+                                <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CMSRow" />
+                              </ActivityAction.Argument>
+                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="672,2654.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <If Condition="[MatchFound = False]" sap:VirtualizedContainerService.HintSize="638,2594.6666666666665" sap2010:WorkflowViewState.IdRef="If_13">
+                                  <If.Then>
+                                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="636,2373.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_42">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <If Condition="[CMSRow(&quot;Norm&quot;).tostring.tolower.trim = Material.tolower.trim]" DisplayName="first part of match check to speed up the process" sap:VirtualizedContainerService.HintSize="602,2313.3333333333335" sap2010:WorkflowViewState.IdRef="If_11">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <If.Then>
+                                          <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="600,2092" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="566,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_33" Message="[&quot;Match: Norm = Material&quot;]" />
+                                            <If Condition="[CMSRow(&quot;Omschrijving&quot;).ToString.Trim() = ArticleRow(&quot;Description&quot;).ToString.Trim() _&#xD;&#xA;AndAlso&#xD;&#xA;(CMSRow(&quot;Alle maten&quot;).tostring.tolower.contains(&quot;ja&quot;) Or (&#xD;&#xA; (Not CMSRow(&quot;Tussen onder en Boven&quot;).tostring.tolower.contains(&quot;ja&quot;) AndAlso Not String.IsNullOrEmpty(CMSRow(&quot;Onder of gelijk aan&quot;).ToString) AndAlso PartMeasure &lt;= convert.todouble(CMSRow(&quot;Onder of gelijk aan&quot;).tostring, System.Globalization.CultureInfo.InvariantCulture)) _&#xD;&#xA; Or _&#xD;&#xA; (Not CMSRow(&quot;Tussen onder en Boven&quot;).tostring.tolower.contains(&quot;ja&quot;) AndAlso Not String.IsNullOrEmpty(CMSRow(&quot;Boven&quot;).ToString) AndAlso PartMeasure &gt; convert.todouble(CMSRow(&quot;Boven&quot;).tostring, System.Globalization.CultureInfo.InvariantCulture)) _&#xD;&#xA; Or _&#xD;&#xA; (CMSRow(&quot;Tussen onder en Boven&quot;).tostring.tolower.contains(&quot;ja&quot;) AndAlso Not String.IsNullOrEmpty(CMSRow(&quot;Tussen onder en Boven&quot;).ToString) AndAlso PartMeasure &gt; convert.todouble(CMSRow(&quot;Onder of gelijk aan&quot;).tostring, System.Globalization.CultureInfo.InvariantCulture) AndAlso PartMeasure &lt;= convert.todouble(CMSRow(&quot;Boven&quot;).tostring, System.Globalization.CultureInfo.InvariantCulture))&#xD;&#xA;)) And Matchfound = False]" DisplayName="If match found" sap:VirtualizedContainerService.HintSize="566,1855.3333333333333" sap2010:WorkflowViewState.IdRef="If_9">
+                                              <If.Then>
+                                                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="532,1622" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                                                  <Sequence.Variables>
+                                                    <Variable x:TypeArguments="x:Int32" Name="MaxLengthStaflader" />
+                                                  </Sequence.Variables>
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="498,57.333333333333336" sap2010:WorkflowViewState.IdRef="LogMessage_41" Message="[&quot;Omschrijving=[&quot; &amp; CMSRow(&quot;Omschrijving&quot;).ToString.Trim() &amp; &quot;] &quot; &amp;&#xA;&quot;Description=[&quot; &amp; ArticleRow(&quot;Description&quot;).ToString.Trim() &amp; &quot;] &quot; &amp;&#xA;&quot;Alle maten=[&quot; &amp; CMSRow(&quot;Alle maten&quot;).ToString &amp; &quot;] &quot; &amp;&#xA;&quot;Tussen=[&quot; &amp; CMSRow(&quot;Tussen onder en Boven&quot;).ToString &amp; &quot;] &quot; &amp;&#xA;&quot;OnderOfGelijkAan=[&quot; &amp; CMSRow(&quot;Onder of gelijk aan&quot;).ToString &amp; &quot;] &quot; &amp;&#xA;&quot;Boven=[&quot; &amp; CMSRow(&quot;Boven&quot;).ToString &amp; &quot;] &quot; &amp;&#xA;&quot;PartMeasure=[&quot; &amp; PartMeasure &amp; &quot;] &quot; &amp;&#xA;&quot;Matchfound=&quot; &amp; Matchfound.ToString]">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </ui:LogMessage>
+                                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="498,57.333333333333336" sap2010:WorkflowViewState.IdRef="LogMessage_37" Message="[&quot;Match found on row.&quot;]">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </ui:LogMessage>
+                                                  <Assign DisplayName="Set MatchFound to True" sap:VirtualizedContainerService.HintSize="498,176.66666666666666" sap2010:WorkflowViewState.IdRef="Assign_11">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:Boolean">[MatchFound]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                                                    </Assign.Value>
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </Assign>
+                                                  <ui:LogMessage DisplayName="Log match info" sap:VirtualizedContainerService.HintSize="498,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_24" Message="[&quot;Alle maten: &quot; + CMSRow(&quot;Alle maten&quot;).tostring + &quot; Boolean: &quot; + (CMSRow(&quot;Alle maten&quot;).tostring.contains(&quot;ja&quot;)).tostring + Environment.newline +&#xD;&#xA;PartMeasure.tostring + &quot; Onder of gelijk aan: &quot; + CMSRow(&quot;Onder of gelijk aan&quot;).tostring + &quot; Boolean: &quot; + (Not CMSRow(&quot;Tussen onder en Boven&quot;).tostring.contains(&quot;ja&quot;) AndAlso Not String.IsNullOrEmpty(CMSRow(&quot;Onder of gelijk aan&quot;).ToString) AndAlso PartMeasure &lt;= convert.todouble(CMSRow(&quot;Onder of gelijk aan&quot;).tostring, System.Globalization.CultureInfo.InvariantCulture)).tostring + Environment.newline +&#xD;&#xA;PartMeasure.tostring +  &quot; Boven: &quot; + CMSRow(&quot;Boven&quot;).tostring + &quot; Boolean: &quot; + (Not CMSRow(&quot;Tussen onder en Boven&quot;).tostring.contains(&quot;ja&quot;) AndAlso Not String.IsNullOrEmpty(CMSRow(&quot;Boven&quot;).ToString) AndAlso PartMeasure &gt; convert.todouble(CMSRow(&quot;Boven&quot;).tostring, System.Globalization.CultureInfo.InvariantCulture)).tostring + Environment.newline +&#xD;&#xA;PartMeasure.tostring +  &quot; Tussen onder en Boven: &quot; + CMSRow(&quot;Tussen onder en Boven&quot;).tostring + &quot; Boolean: &quot; + (CMSRow(&quot;Tussen onder en Boven&quot;).tostring.contains(&quot;ja&quot;) AndAlso Not String.IsNullOrEmpty(CMSRow(&quot;Tussen onder en Boven&quot;).ToString) AndAlso PartMeasure &gt; convert.todouble(CMSRow(&quot;Onder of gelijk aan&quot;).tostring, System.Globalization.CultureInfo.InvariantCulture) AndAlso PartMeasure &lt;= convert.todouble(CMSRow(&quot;Boven&quot;).tostring, System.Globalization.CultureInfo.InvariantCulture)).tostring]">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </ui:LogMessage>
+                                                  <ui:LogMessage DisplayName="Log Step Cz4 result" sap:VirtualizedContainerService.HintSize="498,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_27" Message="[&quot;STEP Cz4: Match found: &quot; + MatchFound.tostring + Environment.NewLine +&#xA;&quot;Maximale lengte staflader: &quot; + CMSRow(&quot;Maximale lengte staflader&quot;).tostring]">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </ui:LogMessage>
+                                                  <If Condition="[CMSRow(&quot;Maximale lengte staflader&quot;).tostring.trim = &quot;nvt&quot;]" DisplayName="If Max lenght nvt, then saw per piece" sap:VirtualizedContainerService.HintSize="498,917.3333333333334" sap2010:WorkflowViewState.IdRef="If_14">
+                                                    <If.Then>
+                                                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_44">
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                        <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="479,241" sap2010:WorkflowViewState.IdRef="MultipleAssign_2">
+                                                          <ui:MultipleAssign.AssignOperations>
+                                                            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                                                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                                                                <ui:AssignOperation.To>
+                                                                  <OutArgument x:TypeArguments="x:Int32">[ToBeQuantityStaflader]</OutArgument>
+                                                                </ui:AssignOperation.To>
+                                                                <ui:AssignOperation.Value>
+                                                                  <InArgument x:TypeArguments="x:Int32">[ToBeQuantityPD]</InArgument>
+                                                                </ui:AssignOperation.Value>
+                                                              </ui:AssignOperation>
+                                                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+                                                                <ui:AssignOperation.To>
+                                                                  <OutArgument x:TypeArguments="x:Int32">[ToBeLengthStaflader]</OutArgument>
+                                                                </ui:AssignOperation.To>
+                                                                <ui:AssignOperation.Value>
+                                                                  <InArgument x:TypeArguments="x:Int32">[CInt(Math.Floor(materialLength + 5 + If(materialLength Mod 1 &gt; 0, 1, 0)))]</InArgument>
+                                                                </ui:AssignOperation.Value>
+                                                              </ui:AssignOperation>
+                                                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+                                                                <ui:AssignOperation.To>
+                                                                  <OutArgument x:TypeArguments="x:String">[MaxLengthStafladerNvt]</OutArgument>
+                                                                </ui:AssignOperation.To>
+                                                                <ui:AssignOperation.Value>
+                                                                  <InArgument x:TypeArguments="x:String">-</InArgument>
+                                                                </ui:AssignOperation.Value>
+                                                              </ui:AssignOperation>
+                                                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+                                                                <ui:AssignOperation.To>
+                                                                  <OutArgument x:TypeArguments="x:String">[strRawQuantityMaxLengthNeeded]</OutArgument>
+                                                                </ui:AssignOperation.To>
+                                                                <ui:AssignOperation.Value>
+                                                                  <InArgument x:TypeArguments="x:String">Per stuk</InArgument>
+                                                                </ui:AssignOperation.Value>
+                                                              </ui:AssignOperation>
+                                                            </scg:List>
+                                                          </ui:MultipleAssign.AssignOperations>
+                                                        </ui:MultipleAssign>
+                                                        <ui:LogMessage DisplayName="Log Sawing per piece" sap:VirtualizedContainerService.HintSize="479,173" sap2010:WorkflowViewState.IdRef="LogMessage_39" Message="[&quot;Need to saw per piece.&quot;]" />
+                                                        <ui:LogMessage DisplayName="Log optimum length and qty" sap:VirtualizedContainerService.HintSize="479,173" sap2010:WorkflowViewState.IdRef="LogMessage_40" Message="[&quot;Should use &quot; + ToBeQuantityStaflader.tostring + &quot; x length &quot; + ToBeLengthStaflader.tostring]" />
+                                                        <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{Current_ProdHeaderDossierCode,MaterialLength.tostring,ToBeQuantityPD.tostring,MaxLengthStafladerNvt.tostring,strRawQuantityMaxLengthNeeded.tostring,ToBeLengthStaflader.tostring,ToBeQuantityStaflader.tostring,PartMeasure.tostring,CurrentStafLength.ToString,CurrentStafQty.tostring,&quot;Lengte per stuk gezaagd&quot;,PartMeasureHeight.tostring}]" DataTable="[dt_Result_DraaiBewerkingCheck]" DisplayName="Add Data Row to dt_Result_DraaiBewerkingCheck" sap:VirtualizedContainerService.HintSize="479,209" sap2010:WorkflowViewState.IdRef="AddDataRow_3" />
+                                                      </Sequence>
+                                                    </If.Then>
+                                                    <If.Else>
+                                                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="496,761" sap2010:WorkflowViewState.IdRef="Sequence_45">
+                                                        <sap:WorkflowViewStateService.ViewState>
+                                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                          </scg:Dictionary>
+                                                        </sap:WorkflowViewStateService.ViewState>
+                                                        <Assign DisplayName="MaxLengthStaflader" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_9">
+                                                          <Assign.To>
+                                                            <OutArgument x:TypeArguments="x:Int32">[MaxLengthStaflader]</OutArgument>
+                                                          </Assign.To>
+                                                          <Assign.Value>
+                                                            <InArgument x:TypeArguments="x:Int32">[convert.toint32(CMSRow("Maximale lengte staflader").tostring.trim)]</InArgument>
+                                                          </Assign.Value>
+                                                          <sap:WorkflowViewStateService.ViewState>
+                                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                            </scg:Dictionary>
+                                                          </sap:WorkflowViewStateService.ViewState>
+                                                        </Assign>
+                                                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_30" Message="[ToBeQuantityPD.tostring + &quot; keer schone Lengte maat: &quot; + MaterialLength.tostring + &quot; nodig (&quot; + ToBeQuantityPD.tostring + &quot;x(&quot; + MaterialLength.tostring + &quot;+5)=&quot; + (ToBeQuantityPD*(MaterialLength+5)).tostring + &quot;)&quot;]" />
+                                                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="1.1.2.1.1 Calculate Optimal Staf - Invoke Workflow File (Process\1.1.2.1.1 Calculate Optimal Staf.xaml)" sap:VirtualizedContainerService.HintSize="434,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Process\1.1.2.1.1 Calculate Optimal Staf.xaml">
+                                                          <ui:InvokeWorkflowFile.Arguments>
+                                                            <InArgument x:TypeArguments="x:Double" x:Key="MaterialLength">[MaterialLength]</InArgument>
+                                                            <OutArgument x:TypeArguments="x:Int32" x:Key="ToBeLengthStaflader">[ToBeLengthStaflader]</OutArgument>
+                                                            <OutArgument x:TypeArguments="x:Int32" x:Key="ToBeQuantityStaflader">[ToBeQuantityStaflader]</OutArgument>
+                                                            <InArgument x:TypeArguments="x:Int32" x:Key="MaxLengthStaflader">[MaxLengthStaflader]</InArgument>
+                                                            <InArgument x:TypeArguments="x:Int32" x:Key="ToBeQuantityPD">[ToBeQuantityPD]</InArgument>
+                                                            <OutArgument x:TypeArguments="x:Int32" x:Key="ToBeLengthStaflader1" />
+                                                            <OutArgument x:TypeArguments="x:Int32" x:Key="ToBeLengthStaflader2" />
+                                                            <OutArgument x:TypeArguments="x:Int32" x:Key="ToBeQuantityStaflader1" />
+                                                            <OutArgument x:TypeArguments="x:Int32" x:Key="ToBeQuantityStaflader2" />
+                                                            <OutArgument x:TypeArguments="x:String" x:Key="strRawQuantityMaxLengthNeeded">[strRawQuantityMaxLengthNeeded]</OutArgument>
+                                                          </ui:InvokeWorkflowFile.Arguments>
+                                                        </ui:InvokeWorkflowFile>
+                                                        <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{Current_ProdHeaderDossierCode,MaterialLength.tostring,ToBeQuantityPD.tostring,MaxLengthStaflader.tostring,strRawQuantityMaxLengthNeeded.tostring,ToBeLengthStaflader.tostring,ToBeQuantityStaflader.tostring,PartMeasure.tostring,CurrentStafLength.ToString,CurrentStafQty.tostring,&quot;Lengte tbv staflader&quot;,PartMeasureHeight.tostring}]" DataTable="[dt_Result_DraaiBewerkingCheck]" DisplayName="Add Data Row to dt_Result_DraaiBewerkingCheck" sap:VirtualizedContainerService.HintSize="434,209" sap2010:WorkflowViewState.IdRef="AddDataRow_4" />
+                                                      </Sequence>
+                                                    </If.Else>
+                                                  </If>
+                                                </Sequence>
+                                              </If.Then>
+                                              <If.Else>
+                                                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,103" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                                                  <sap:WorkflowViewStateService.ViewState>
+                                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                    </scg:Dictionary>
+                                                  </sap:WorkflowViewStateService.ViewState>
+                                                </Sequence>
+                                              </If.Else>
+                                            </If>
+                                          </Sequence>
+                                        </If.Then>
+                                        <If.Else>
+                                          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="600,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                                            <sap:WorkflowViewStateService.ViewState>
+                                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                              </scg:Dictionary>
+                                            </sap:WorkflowViewStateService.ViewState>
+                                          </Sequence>
+                                        </If.Else>
+                                      </If>
+                                    </Sequence>
+                                  </If.Then>
+                                  <If.Else>
+                                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="450,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_43">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </Sequence>
+                                  </If.Else>
+                                </If>
+                              </Sequence>
+                            </ActivityAction>
+                          </ui:ForEachRow.Body>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </ui:ForEachRow>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="522,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                </Sequence>
+              </ActivityAction>
+            </ui:ForEachRow.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:ForEachRow>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="594,868.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_18">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="560,241.33333333333334" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+            <ui:MultipleAssign.AssignOperations>
+              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:Int32">[ToBeQuantityStaflader]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:Int32">[ToBeQuantityPD]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:Int32">[ToBeLengthStaflader]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:Int32">[CInt(Math.Floor(materialLength + 5 + If(materialLength Mod 1 &gt; 0, 1, 0)))]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[MaxLengthStafladernvt]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">-</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[strRawQuantityMaxLengthNeeded]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">Per stuk</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+              </scg:List>
+            </ui:MultipleAssign.AssignOperations>
+          </ui:MultipleAssign>
+          <ui:LogMessage DisplayName="Log Sawing per piece" sap:VirtualizedContainerService.HintSize="560,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_36" Message="[&quot;Need to saw per piece.&quot;]" />
+          <ui:LogMessage DisplayName="Log optimum length and qty" sap:VirtualizedContainerService.HintSize="560,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_35" Message="[&quot;Should use &quot; + ToBeQuantityStaflader.tostring + &quot; x length &quot; + ToBeLengthStaflader.tostring]" />
+          <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{Current_ProdHeaderDossierCode,MaterialLength.tostring,ToBeQuantityPD.tostring,MaxLengthStafladernvt.tostring,strRawQuantityMaxLengthNeeded.tostring,ToBeLengthStaflader.tostring,ToBeQuantityStaflader.tostring,PartMeasure.tostring,CurrentStafLength.ToString,CurrentStafQty.tostring,&quot;Lengte per stuk gezaagd&quot;,PartMeasureHeight.tostring}]" DataTable="[dt_Result_DraaiBewerkingCheck]" DisplayName="Add Data Row to dt_Result_DraaiBewerkingCheck" sap:VirtualizedContainerService.HintSize="560,214" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
+        </Sequence>
+      </If.Else>
+    </If>
+  </Sequence>
+</Activity>

@@ -1,0 +1,948 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="_1_4_Create_queue_Item" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:p="clr-namespace:Prepbot_Fijn_Design_Proces_A;assembly=DataService.Prepbot_Fijn_Design_Proces_A" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:this="clr-namespace:" xmlns:uda="clr-namespace:UiPath.DataService.Activities;assembly=UiPath.DataService.Activities.Core" xmlns:udam="clr-namespace:UiPath.DataService.Activities.Models;assembly=UiPath.DataService.Activities.Core" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:upama="clr-namespace:UiPath.Persistence.Activities.Model.Apps;assembly=UiPath.Persistence.Activities" xmlns:upau="clr-namespace:UiPath.Persistence.Activities.UserAction;assembly=UiPath.Persistence.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="Current_ProdHeaderDossierCode" Type="InArgument(x:String)" />
+    <x:Property Name="DatabaseConnection" Type="InArgument(ui:DatabaseConnection)" />
+  </x:Members>
+  <this:_1_4_Create_queue_Item.DatabaseConnection>
+    <InArgument x:TypeArguments="ui:DatabaseConnection" />
+  </this:_1_4_Create_queue_Item.DatabaseConnection>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1773,5436</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>_1_4_Create_queue_Item_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.Activities.System.Collections</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>Prepbot_Fijn_Design_Proces_A</x:String>
+      <x:String>UiPath.DataService.Definition</x:String>
+      <x:String>UiPath.DataService.Activities.Models</x:String>
+      <x:String>UiPath.DataService.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>UiPath.Shared.Activities.Business</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>UiPath.Persistence.Activities.Model.Apps</x:String>
+      <x:String>UiPath.Persistence.Activities.Model.Task</x:String>
+      <x:String>UiPath.Persistence.Activities.UserAction</x:String>
+      <x:String>UiPath.Persistence.Activities.BaseTask</x:String>
+      <x:String>UiPath.Persistence.Activities</x:String>
+      <x:String>UiPath.Database</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>netstandard</AssemblyReference>
+      <AssemblyReference>DataService.Prepbot_Fijn_Design_Proces_A</AssemblyReference>
+      <AssemblyReference>UiPath.DataService.Definition</AssemblyReference>
+      <AssemblyReference>UiPath.DataService.Activities.Core</AssemblyReference>
+      <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Persistence.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Database</AssemblyReference>
+      <AssemblyReference>C96CF6A7695_Bewerkin.33u2x1v3cTS17xBhvivS2J4</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <sap:WorkflowViewStateService.ViewState>
+    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+    </scg:Dictionary>
+  </sap:WorkflowViewStateService.ViewState>
+  <Sequence DisplayName="_1_4_Create_queue_Item" sap:VirtualizedContainerService.HintSize="1007.3333333333333,6500.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="scg:List(sd:DataTable)" Name="List_Of_Datatable" />
+      <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="transactionItem" />
+      <Variable x:TypeArguments="p:PDSuggestion" Name="PDSuggestieOutputID" />
+      <Variable x:TypeArguments="x:Int32" Name="ReferentiePDorder" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:IfElseIfV2 Condition="[PD_route = 1]" DisplayName="Else If" sap:VirtualizedContainerService.HintSize="688,972.6666666666666" sap2010:WorkflowViewState.IdRef="IfElseIfV2_1">
+      <ui:IfElseIfV2.Else>
+        <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_31">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </ui:IfElseIfV2.Else>
+      <ui:IfElseIfV2.ElseIfs>
+        <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+          <ui:IfElseIfBlock BlockType="ElseIf" Condition="[PD_route = 2]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_1">
+            <ui:IfElseIfBlock.Then>
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,227.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign DisplayName="Assign List_Of_Datatable exlude dt_Result_MaterialDimensionsCheck" sap:VirtualizedContainerService.HintSize="416,167.33333333333334" sap2010:WorkflowViewState.IdRef="Assign_7">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="scg:List(sd:DataTable)">[List_Of_Datatable]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="scg:List(sd:DataTable)">[New List(Of DataTable) From {dt_Result_QtyCheck, dt_Result_DraaiBewerkingCheck,dt_Result_FreesBewerkingCheck,dt_Result_MemoCheck,dt_Result_ReferencePDs,dt_Result_DimensionExceptions}]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Sequence>
+            </ui:IfElseIfBlock.Then>
+          </ui:IfElseIfBlock>
+          <ui:IfElseIfBlock BlockType="ElseIf" Condition="[PD_route = 3]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_2">
+            <ui:IfElseIfBlock.Then>
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,227.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign DisplayName="Assign List_Of_Datatable exclude dt_Result_FreesBewerkingCheck" sap:VirtualizedContainerService.HintSize="416,167.33333333333334" sap2010:WorkflowViewState.IdRef="Assign_1">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="scg:List(sd:DataTable)">[List_Of_Datatable]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="scg:List(sd:DataTable)">[New List(Of DataTable) From {dt_Result_QtyCheck, dt_Result_DraaiBewerkingCheck,dt_Result_MaterialDimensionsCheck,dt_Result_MemoCheck,dt_Result_ReferencePDs,dt_Result_DimensionExceptions}]</InArgument>
+                  </Assign.Value>
+                </Assign>
+              </Sequence>
+            </ui:IfElseIfBlock.Then>
+          </ui:IfElseIfBlock>
+        </sc:BindingList>
+      </ui:IfElseIfV2.ElseIfs>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:IfElseIfV2.Then>
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,227.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_28">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign DisplayName="Assign List_Of_Datatable exclude dt_Result_FreesBewerkingCheck" sap:VirtualizedContainerService.HintSize="416,167.33333333333334" sap2010:WorkflowViewState.IdRef="Assign_6">
+            <Assign.To>
+              <OutArgument x:TypeArguments="scg:List(sd:DataTable)">[List_Of_Datatable]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="scg:List(sd:DataTable)">[New List(Of DataTable) From {dt_Result_QtyCheck, dt_Result_DraaiBewerkingCheck,dt_Result_MaterialDimensionsCheck,dt_Result_MemoCheck,dt_Result_ReferencePDs,dt_Result_DimensionExceptions}]</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </ui:IfElseIfV2.Then>
+    </ui:IfElseIfV2>
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="For Each dt As DataTable In List_Of_Datatable&#xA;    For Each col As DataColumn In dt.Columns&#xA;        Dim row As DataRow = dt_Result_QueueItem.NewRow()&#xA;        row(&quot;ColumnName&quot;)  = col.ColumnName&#xA;        row(&quot;ColumnValue&quot;) = If(dt.Rows.Count &gt; 0, dt.Rows(0)(col), String.Empty)&#xA;        dt_Result_QueueItem.Rows.Add(row)&#xA;    Next&#xA;Next&#xA;" DisplayName="Add all dt to 1 dt" sap:VirtualizedContainerService.HintSize="688,197.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+      <ui:InvokeCode.Arguments>
+        <InOutArgument x:TypeArguments="scg:List(sd:DataTable)" x:Key="List_Of_Datatable">[List_Of_Datatable]</InOutArgument>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="dt_Result_QueueItem">[dt_Result_QueueItem]</InOutArgument>
+      </ui:InvokeCode.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeCode>
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="' Argumenten:&#xA;' In: dt_Result_QueueItem As DataTable&#xA;' InOut: transactionItem As Dictionary(Of String,Object)&#xA;&#xA;' 1) Init&#xA;transactionItem = New Dictionary(Of String, Object)()&#xA;&#xA;' 2) Vul&#xA;For Each r As DataRow In dt_Result_QueueItem.Rows&#xA;    Dim key   As String = r(&quot;ColumnName&quot;).ToString()&#xA;    Dim value As String = r(&quot;ColumnValue&quot;).ToString()&#xA;    transactionItem(key) = value&#xA;Next&#xA;&#xA;' (Daarna buiten deze code:)&#xA;' Add Queue Item&#xA;'   QueueName = &quot;MijnQueue&quot;&#xA;'   SpecificContent = transactionItem&#xA;" DisplayName="Add all dt to transaction item" sap:VirtualizedContainerService.HintSize="688,197.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeCode_3">
+      <ui:InvokeCode.Arguments>
+        <InOutArgument x:TypeArguments="scg:List(sd:DataTable)" x:Key="List_Of_Datatable">[List_Of_Datatable]</InOutArgument>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="dt_Result_QueueItem">[dt_Result_QueueItem]</InOutArgument>
+        <InOutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="transactionItem">[transactionItem]</InOutArgument>
+      </ui:InvokeCode.Arguments>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:InvokeCode>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="688,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,305" sap2010:WorkflowViewState.IdRef="Sequence_17">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item" FolderPath="Fijne Werkvoorbereiding" sap:VirtualizedContainerService.HintSize="354,217" sap2010:WorkflowViewState.IdRef="AddQueueItem_1" ItemInformationCollection="[transactionItem]" Priority="Normal" QueueType="Process_A_Main_Results_Overview" Reference="[Current_ProdHeaderDossierCode]">
+            <ui:AddQueueItem.ItemInformation>
+              <scg:Dictionary x:TypeArguments="x:String, InArgument" />
+            </ui:AddQueueItem.ItemInformation>
+          </ui:AddQueueItem>
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:LogMessage DisplayName="Log Found and not found Reference PD's" sap:VirtualizedContainerService.HintSize="688,57.333333333333336" sap2010:WorkflowViewState.IdRef="LogMessage_4" Message="[&quot;ReferencePD1: &quot; + transactionItem(&quot;ReferencePD1&quot;).tostring + Environment.newline + &#xA;&quot;ReferencePD2: &quot; + transactionItem(&quot;ReferencePD2&quot;).tostring + Environment.newline + &#xA;&quot;ReferencePD3: &quot; + transactionItem(&quot;ReferencePD3&quot;).tostring + Environment.newline + &#xA;&quot;ReferencePD4: &quot; + transactionItem(&quot;ReferencePD4&quot;).tostring + Environment.newline + &#xA;&quot;ReferencePD5: &quot; + transactionItem(&quot;ReferencePD5&quot;).tostring]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:LogMessage>
+    <ui:WriteRange StartingCell="{x:Null}" AddHeaders="False" DataTable="[dt_Result_QueueItem]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="688,57.333333333333336" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="[&quot;Result_PD_&quot;+Current_ProdHeaderDossierCode]" WorkbookPath="Data\ResultQueueItems.xlsx">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:WriteRange>
+    <ui:ClearDataTable DataTable="[dt_Result_QueueItem]" DisplayName="Clear Data Table" sap:VirtualizedContainerService.HintSize="688,57.333333333333336" sap2010:WorkflowViewState.IdRef="ClearDataTable_10">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ClearDataTable>
+    <ui:ForEach x:TypeArguments="sd:DataTable" CurrentIndex="{x:Null}" DisplayName="For Each currentDataTable" sap:VirtualizedContainerService.HintSize="688,57.333333333333336" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[List_Of_Datatable]">
+      <ui:ForEach.Body>
+        <ActivityAction x:TypeArguments="sd:DataTable">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="sd:DataTable" Name="currentDataTable" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="450,164.66666666666666" sap2010:WorkflowViewState.IdRef="Sequence_5">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:ClearDataTable DataTable="[currentDataTable]" DisplayName="Clear Data Table" sap:VirtualizedContainerService.HintSize="416,104.66666666666667" sap2010:WorkflowViewState.IdRef="ClearDataTable_2" />
+          </Sequence>
+        </ActivityAction>
+      </ui:ForEach.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ForEach>
+    <Sequence DisplayName="Add entity data" sap:VirtualizedContainerService.HintSize="688,4660" sap2010:WorkflowViewState.IdRef="Sequence_6">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="QuantityOld" />
+        <Variable x:TypeArguments="x:String" Name="Ordernummer" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="626,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_5" Message="[&quot;Schone zaagmaat:  &quot; + transactionItem(&quot;CleanLength&quot;).ToString]" />
+      <Sequence DisplayName="Create Main Entity Record" sap:VirtualizedContainerService.HintSize="626,3097.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_32">
+        <Sequence.Variables>
+          <Variable x:TypeArguments="x:String" Name="Number" />
+          <Variable x:TypeArguments="x:Boolean" Name="CheckDimensions" />
+          <Variable x:TypeArguments="x:String" Name="Classificatienummer" />
+          <Variable x:TypeArguments="x:String" Name="Cleansize" />
+          <Variable x:TypeArguments="x:String" Name="CleanSizeQuantity" />
+          <Variable x:TypeArguments="x:String" Name="DimensionExceptionHeight" />
+          <Variable x:TypeArguments="x:String" Name="DimensionExceptionLength" />
+          <Variable x:TypeArguments="x:String" Name="DimensionExceptionWidth" />
+          <Variable x:TypeArguments="x:String" Name="HeightGross" />
+          <Variable x:TypeArguments="x:String" Name="HeightGrossToBe" />
+          <Variable x:TypeArguments="x:String" Name="HeightNet" />
+          <Variable x:TypeArguments="x:String" Name="LengthGross" />
+          <Variable x:TypeArguments="x:String" Name="LengthGrossToBe" />
+          <Variable x:TypeArguments="x:String" Name="LengthNet" />
+          <Variable x:TypeArguments="x:String" Name="Memo" />
+          <Variable x:TypeArguments="x:String" Name="MemoToBe" />
+          <Variable x:TypeArguments="x:String" Name="Omschrijving" />
+          <Variable x:TypeArguments="x:String" Name="StafDiameter" />
+          <Variable x:TypeArguments="x:String" Name="StafLength" />
+          <Variable x:TypeArguments="x:String" Name="StafLengthNet" />
+          <Variable x:TypeArguments="x:String" Name="StafLengthQuantity" />
+          <Variable x:TypeArguments="x:String" Name="StafLengthQuantityNet" />
+          <Variable x:TypeArguments="x:String" Name="WidthGross" />
+          <Variable x:TypeArguments="x:String" Name="WidthGrossToBe" />
+          <Variable x:TypeArguments="x:String" Name="WidthNet" />
+          <Variable x:TypeArguments="x:String" Name="Zaaginformatie" />
+          <Variable x:TypeArguments="x:String" Name="QuantityNew" />
+          <Variable x:TypeArguments="x:String" Name="PartMeasureHeight" />
+          <Variable x:TypeArguments="x:String" Name="Partcode" />
+        </Sequence.Variables>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="477.3333333333333,1069.3333333333333" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+          <ui:MultipleAssign.AssignOperations>
+            <scg:List x:TypeArguments="ui:AssignOperation" Capacity="32">
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[Number]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[Current_ProdHeaderDossierCode]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:Boolean">[CheckDimensions]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:Boolean">[IF(transactionItem("ChangeNeeded").ToString = "1",True,False)]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[Classificatienummer]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[Current_ClassNr]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[Cleansize]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[transactionItem("CleanLength").ToString]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_5">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[CleanSizeQuantity]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[transactionItem("QtyCleanLengthNeeded").ToString]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_6">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[DimensionExceptionHeight]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[transactionItem("HeightException").ToString]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_7">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[DimensionExceptionLength]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[transactionItem("LengthException").ToString]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_8">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[DimensionExceptionWidth]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[transactionItem("WidthException").ToString]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_9">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[HeightGross]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[If(Decimal.TryParse(transactionItem("CurrentBrutoHeight").ToString, Nothing), (CDbl(Decimal.Parse(transactionItem("CurrentBrutoHeight").ToString)) * 1000).ToString, "")]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_10">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[HeightGrossToBe]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String" xml:space="preserve">[If(Decimal.TryParse(transactionItem("ToBeBrutoHeight").ToString.TrimStart("&gt;"c), Nothing),
+   If(transactionItem("ToBeBrutoHeight").ToString.Trim().StartsWith("&gt;"), "&gt;", "") &amp;
+   (CDbl(Decimal.Parse(transactionItem("ToBeBrutoHeight").ToString.TrimStart("&gt;"c))) * 1000).ToString,
+   "")]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_11">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[HeightNet]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[If(Decimal.TryParse(transactionItem("CurrentNettoHeight").ToString, Nothing), (CDbl(Decimal.Parse(transactionItem("CurrentNettoHeight").ToString)) * 1000).ToString, "")]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_12">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[LengthGross]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[If(Decimal.TryParse(transactionItem("CurrentBrutoLength").ToString, Nothing), (CDbl(Decimal.Parse(transactionItem("CurrentBrutoLength").ToString)) * 1000).ToString, "")]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_13">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[LengthGrossToBe]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String" xml:space="preserve">[If(Decimal.TryParse(transactionItem("ToBeBrutoLength").ToString.TrimStart("&gt;"c), Nothing),
+   If(transactionItem("ToBeBrutoLength").ToString.Trim().StartsWith("&gt;"), "&gt;", "") &amp;
+   (CDbl(Decimal.Parse(transactionItem("ToBeBrutoLength").ToString.TrimStart("&gt;"c))) * 1000).ToString,
+   "")]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_14">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[LengthNet]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[If(Decimal.TryParse(transactionItem("CurrentNettoLength").ToString, Nothing), (CDbl(Decimal.Parse(transactionItem("CurrentNettoLength").ToString)) * 1000).ToString, "")]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_15">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[Memo]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[transactionItem("CurrentMemo").ToString]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_16">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[MemoToBe]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[transactionItem("NewMemo").ToString]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_17">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[Omschrijving]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[Current_Description]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_18">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[Ordernummer]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[Current_OrderNr]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_19">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[QuantityNew]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[transactionItem("ToBeQty").ToString]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_20">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[QuantityOld]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[transactionItem("OldQty").ToString]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_21">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[StafDiameter]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[transactionItem("StafDiameter").ToString]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_22">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[StafLength]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[transactionItem("CurrentStafLength").ToString]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_23">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[StafLengthNet]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[transactionItem("ToBeStafLength").ToString]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_24">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[StafLengthQuantity]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[transactionItem("CurrentStafQty").ToString]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_25">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[StafLengthQuantityNet]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[transactionItem("ToBeStafQty").ToString]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_26">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[WidthGross]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[If(Decimal.TryParse(transactionItem("CurrentBrutoWidth").ToString, Nothing), (CDbl(Decimal.Parse(transactionItem("CurrentBrutoWidth").ToString)) * 1000).ToString, "")]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_27">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[WidthGrossToBe]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String" xml:space="preserve">[If(Decimal.TryParse(transactionItem("ToBeBrutoWidth").ToString.TrimStart("&gt;"c), Nothing),
+   If(transactionItem("ToBeBrutoWidth").ToString.Trim().StartsWith("&gt;"), "&gt;", "") &amp;
+   (CDbl(Decimal.Parse(transactionItem("ToBeBrutoWidth").ToString.TrimStart("&gt;"c))) * 1000).ToString,
+   "")]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_28">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[WidthNet]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[If(Decimal.TryParse(transactionItem("CurrentNettoWidth").ToString, Nothing), (CDbl(Decimal.Parse(transactionItem("CurrentNettoWidth").ToString)) * 1000).ToString, "")]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_29">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[Zaaginformatie]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[transactionItem("SawingInfo").ToString]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_30">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[PartMeasureHeight]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[transactionItem("PartMeasureHeight").ToString]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_31">
+                <ui:AssignOperation.To>
+                  <OutArgument x:TypeArguments="x:String">[Partcode]</OutArgument>
+                </ui:AssignOperation.To>
+                <ui:AssignOperation.Value>
+                  <InArgument x:TypeArguments="x:String">[Current_Partcode]</InArgument>
+                </ui:AssignOperation.Value>
+              </ui:AssignOperation>
+            </scg:List>
+          </ui:MultipleAssign.AssignOperations>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </ui:MultipleAssign>
+        <uda:CreateEntityRecord x:TypeArguments="p:PDSuggestion" InputEntity="{x:Null}" VisibleDynamicPropertiesInfo="{x:Null}" ContinueOnError="False" DisplayName="Create Main Entity Record" EntityId="f30bfdf3-812a-f011-8b3d-002248997c1b" ExpansionDepth="2" sap:VirtualizedContainerService.HintSize="477.3333333333333,1936" sap2010:WorkflowViewState.IdRef="CreateEntityRecord`1_1" InputEntityInFieldView="[new Prepbot_Fijn_Design_Proces_A.PDSuggestion() With {  .Number = number,  .PDRoute = PD_route,  .CheckDimensions = CheckDimensions,  .Classificatienummer = Classificatienummer,  .CleanSize = Cleansize,  .CleanSizeQuantity = CleanSizeQuantity,  .DimensionExceptionHeight = DimensionExceptionHeight,  .DimensionExceptionLength = DimensionExceptionLength,  .DimensionExceptionWidth = DimensionExceptionWidth,  .HeightGross = HeightGross,  .HeightGrossToBe = HeightGrossToBe,  .HeightNet = HeightNet,  .LengthGross = LengthGross,  .LengthGrossToBe = LengthGrossToBe,  .LengthNet = LengthNet,  .Memo = Memo,  .MemoToBe = MemoToBe,  .Omschrijving = Omschrijving,  .Ordernummer = Ordernummer,  .Partcode = Partcode,  .PartMeasureHeight = PartMeasureHeight,  .PartType = PartType,  .QuantityNew = QuantityNew,  .QuantityOld = QuantityOld,  .StafDiameter = StafDiameter,  .StafLength = StafLength,  .StafLengthNet = StafLengthNet,  .StafLengthQuantity = StafLengthQuantity,  .StafLengthQuantityNet = StafLengthQuantityNet,  .Testrun = Testrun,  .WidthGross = WidthGross,  .WidthGrossToBe = WidthGrossToBe,  .WidthNet = WidthNet,  .Zaaginformatie = Zaaginformatie }]" IsInRecordView="False" OutputEntity="[PDSuggestieOutputID]" TimeoutInMs="30000">
+          <uda:CreateEntityRecord.State>
+            <udam:RecordState RequiredFieldCount="2">
+              <udam:RecordState.SelectedFields>
+                <scg:List x:TypeArguments="udam:DynamicEntityField" Capacity="34">
+                  <udam:DynamicEntityField Id="080cfdf3-812a-f011-8b3d-002248997c1b" IsRequired="True" Name="Number">
+                    <udam:DynamicEntityField.ArgumentValue>
+                      <InArgument x:TypeArguments="x:String">[number]</InArgument>
+                    </udam:DynamicEntityField.ArgumentValue>
+                  </udam:DynamicEntityField>
+                  <udam:DynamicEntityField Id="9f8fe874-037c-f011-b481-002248a462d5" IsRequired="True" Name="PDRoute">
+                    <udam:DynamicEntityField.ArgumentValue>
+                      <InArgument x:TypeArguments="x:Decimal">[PD_route]</InArgument>
+                    </udam:DynamicEntityField.ArgumentValue>
+                  </udam:DynamicEntityField>
+                  <udam:DynamicEntityField Id="fd0bfdf3-812a-f011-8b3d-002248997c1b" Name="CheckDimensions">
+                    <udam:DynamicEntityField.ArgumentValue>
+                      <InArgument x:TypeArguments="x:Boolean">[CheckDimensions]</InArgument>
+                    </udam:DynamicEntityField.ArgumentValue>
+                  </udam:DynamicEntityField>
+                  <udam:DynamicEntityField Id="9ebd90e7-8d30-f011-8b3d-002248997c1b" Name="Classificatienummer">
+                    <udam:DynamicEntityField.ArgumentValue>
+                      <InArgument x:TypeArguments="x:String">[Classificatienummer]</InArgument>
+                    </udam:DynamicEntityField.ArgumentValue>
+                  </udam:DynamicEntityField>
+                  <udam:DynamicEntityField Id="fe0bfdf3-812a-f011-8b3d-002248997c1b" Name="CleanSize">
+                    <udam:DynamicEntityField.ArgumentValue>
+                      <InArgument x:TypeArguments="x:String">[Cleansize]</InArgument>
+                    </udam:DynamicEntityField.ArgumentValue>
+                  </udam:DynamicEntityField>
+                  <udam:DynamicEntityField Id="ff0bfdf3-812a-f011-8b3d-002248997c1b" Name="CleanSizeQuantity">
+                    <udam:DynamicEntityField.ArgumentValue>
+                      <InArgument x:TypeArguments="x:String">[CleanSizeQuantity]</InArgument>
+                    </udam:DynamicEntityField.ArgumentValue>
+                  </udam:DynamicEntityField>
+                  <udam:DynamicEntityField Id="5400daad-c22f-f011-8b3d-002248997c1b" Name="DimensionExceptionHeight">
+                    <udam:DynamicEntityField.ArgumentValue>
+                      <InArgument x:TypeArguments="x:String">[DimensionExceptionHeight]</InArgument>
+                    </udam:DynamicEntityField.ArgumentValue>
+                  </udam:DynamicEntityField>
+                  <udam:DynamicEntityField Id="23d8eda4-c22f-f011-8b3d-002248997c1b" Name="DimensionExceptionLength">
+                    <udam:DynamicEntityField.ArgumentValue>
+                      <InArgument x:TypeArguments="x:String">[DimensionExceptionLength]</InArgument>
+                    </udam:DynamicEntityField.ArgumentValue>
+                  </udam:DynamicEntityField>
+                  <udam:DynamicEntityField Id="fc45d89c-c22f-f011-8b3d-002248997c1b" Name="DimensionExceptionWidth">
+                    <udam:DynamicEntityField.ArgumentValue>
+                      <InArgument x:TypeArguments="x:String">[DimensionExceptionWidth]</InArgument>
+                    </udam:DynamicEntityField.ArgumentValue>
+                  </udam:DynamicEntityField>
+                  <udam:DynamicEntityField Id="000cfdf3-812a-f011-8b3d-002248997c1b" Name="HeightGross">
+                    <udam:DynamicEntityField.ArgumentValue>
+                      <InArgument x:TypeArguments="x:String">[HeightGross]</InArgument>
+                    </udam:DynamicEntityField.ArgumentValue>
+                  </udam:DynamicEntityField>
+                  <udam:DynamicEntityField Id="010cfdf3-812a-f011-8b3d-002248997c1b" Name="HeightGrossToBe">
+                    <udam:DynamicEntityField.ArgumentValue>
+                      <InArgument x:TypeArguments="x:String">[HeightGrossToBe]</InArgument>
+                    </udam:DynamicEntityField.ArgumentValue>
+                  </udam:DynamicEntityField>
+                  <udam:DynamicEntityField Id="020cfdf3-812a-f011-8b3d-002248997c1b" Name="HeightNet">
+                    <udam:DynamicEntityField.ArgumentValue>
+                      <InArgument x:TypeArguments="x:String">[HeightNet]</InArgument>
+                    </udam:DynamicEntityField.ArgumentValue>
+                  </udam:DynamicEntityField>
+                  <udam:DynamicEntityField Id="030cfdf3-812a-f011-8b3d-002248997c1b" Name="LengthGross">
+                    <udam:DynamicEntityField.ArgumentValue>
+                      <InArgument x:TypeArguments="x:String">[LengthGross]</InArgument>
+                    </udam:DynamicEntityField.ArgumentValue>
+                  </udam:DynamicEntityField>
+                  <udam:DynamicEntityField Id="040cfdf3-812a-f011-8b3d-002248997c1b" Name="LengthGrossToBe">
+                    <udam:DynamicEntityField.ArgumentValue>
+                      <InArgument x:TypeArguments="x:String">[LengthGrossToBe]</InArgument>
+                    </udam:DynamicEntityField.ArgumentValue>
+                  </udam:DynamicEntityField>
+                  <udam:DynamicEntityField Id="050cfdf3-812a-f011-8b3d-002248997c1b" Name="LengthNet">
+                    <udam:DynamicEntityField.ArgumentValue>
+                      <InArgument x:TypeArguments="x:String">[LengthNet]</InArgument>
+                    </udam:DynamicEntityField.ArgumentValue>
+                  </udam:DynamicEntityField>
+                  <udam:DynamicEntityField Id="060cfdf3-812a-f011-8b3d-002248997c1b" Name="Memo">
+                    <udam:DynamicEntityField.ArgumentValue>
+                      <InArgument x:TypeArguments="x:String">[Memo]</InArgument>
+                    </udam:DynamicEntityField.ArgumentValue>
+                  </udam:DynamicEntityField>
+                  <udam:DynamicEntityField Id="070cfdf3-812a-f011-8b3d-002248997c1b" Name="MemoToBe">
+                    <udam:DynamicEntityField.ArgumentValue>
+                      <InArgument x:TypeArguments="x:String">[MemoToBe]</InArgument>
+                    </udam:DynamicEntityField.ArgumentValue>
+                  </udam:DynamicEntityField>
+                  <udam:DynamicEntityField Id="affadc05-8e30-f011-8b3d-002248997c1b" Name="Omschrijving">
+                    <udam:DynamicEntityField.ArgumentValue>
+                      <InArgument x:TypeArguments="x:String">[Omschrijving]</InArgument>
+                    </udam:DynamicEntityField.ArgumentValue>
+                  </udam:DynamicEntityField>
+                  <udam:DynamicEntityField Id="9dbd90e7-8d30-f011-8b3d-002248997c1b" Name="Ordernummer">
+                    <udam:DynamicEntityField.ArgumentValue>
+                      <InArgument x:TypeArguments="x:String">[Ordernummer]</InArgument>
+                    </udam:DynamicEntityField.ArgumentValue>
+                  </udam:DynamicEntityField>
+                  <udam:DynamicEntityField Id="6de82dcb-d17c-f011-b481-002248a462d5" Name="Partcode">
+                    <udam:DynamicEntityField.ArgumentValue>
+                      <InArgument x:TypeArguments="x:String">[Partcode]</InArgument>
+                    </udam:DynamicEntityField.ArgumentValue>
+                  </udam:DynamicEntityField>
+                  <udam:DynamicEntityField Id="b17b873d-de45-f011-a5f1-0022489e662b" Name="PartMeasureHeight">
+                    <udam:DynamicEntityField.ArgumentValue>
+                      <InArgument x:TypeArguments="x:String">[PartMeasureHeight]</InArgument>
+                    </udam:DynamicEntityField.ArgumentValue>
+                  </udam:DynamicEntityField>
+                  <udam:DynamicEntityField Id="6c711483-db3f-f011-a5f1-0022489e662b" Name="PartType">
+                    <udam:DynamicEntityField.ArgumentValue>
+                      <InArgument x:TypeArguments="x:String">[PartType]</InArgument>
+                    </udam:DynamicEntityField.ArgumentValue>
+                  </udam:DynamicEntityField>
+                  <udam:DynamicEntityField Id="090cfdf3-812a-f011-8b3d-002248997c1b" Name="QuantityNew">
+                    <udam:DynamicEntityField.ArgumentValue>
+                      <InArgument x:TypeArguments="x:String">[QuantityNew]</InArgument>
+                    </udam:DynamicEntityField.ArgumentValue>
+                  </udam:DynamicEntityField>
+                  <udam:DynamicEntityField Id="0a0cfdf3-812a-f011-8b3d-002248997c1b" Name="QuantityOld">
+                    <udam:DynamicEntityField.ArgumentValue>
+                      <InArgument x:TypeArguments="x:String">[QuantityOld]</InArgument>
+                    </udam:DynamicEntityField.ArgumentValue>
+                  </udam:DynamicEntityField>
+                  <udam:DynamicEntityField Id="445051e3-ef2b-f011-8b3d-002248997c1b" Name="StafDiameter">
+                    <udam:DynamicEntityField.ArgumentValue>
+                      <InArgument x:TypeArguments="x:String">[StafDiameter]</InArgument>
+                    </udam:DynamicEntityField.ArgumentValue>
+                  </udam:DynamicEntityField>
+                  <udam:DynamicEntityField Id="0b0cfdf3-812a-f011-8b3d-002248997c1b" Name="StafLength">
+                    <udam:DynamicEntityField.ArgumentValue>
+                      <InArgument x:TypeArguments="x:String">[StafLength]</InArgument>
+                    </udam:DynamicEntityField.ArgumentValue>
+                  </udam:DynamicEntityField>
+                  <udam:DynamicEntityField Id="2007faf6-3b2f-f011-8b3d-002248997c1b" Name="StafLengthNet">
+                    <udam:DynamicEntityField.ArgumentValue>
+                      <InArgument x:TypeArguments="x:String">[StafLengthNet]</InArgument>
+                    </udam:DynamicEntityField.ArgumentValue>
+                  </udam:DynamicEntityField>
+                  <udam:DynamicEntityField Id="0c0cfdf3-812a-f011-8b3d-002248997c1b" Name="StafLengthQuantity">
+                    <udam:DynamicEntityField.ArgumentValue>
+                      <InArgument x:TypeArguments="x:String">[StafLengthQuantity]</InArgument>
+                    </udam:DynamicEntityField.ArgumentValue>
+                  </udam:DynamicEntityField>
+                  <udam:DynamicEntityField Id="f2bdec02-4f31-f011-8b3d-002248997c1b" Name="StafLengthQuantityNet">
+                    <udam:DynamicEntityField.ArgumentValue>
+                      <InArgument x:TypeArguments="x:String">[StafLengthQuantityNet]</InArgument>
+                    </udam:DynamicEntityField.ArgumentValue>
+                  </udam:DynamicEntityField>
+                  <udam:DynamicEntityField Id="ed44ea7d-f42b-f011-8b3d-002248997c1b" Name="Testrun">
+                    <udam:DynamicEntityField.ArgumentValue>
+                      <InArgument x:TypeArguments="x:Boolean">[Testrun]</InArgument>
+                    </udam:DynamicEntityField.ArgumentValue>
+                  </udam:DynamicEntityField>
+                  <udam:DynamicEntityField Id="0d0cfdf3-812a-f011-8b3d-002248997c1b" Name="WidthGross">
+                    <udam:DynamicEntityField.ArgumentValue>
+                      <InArgument x:TypeArguments="x:String">[WidthGross]</InArgument>
+                    </udam:DynamicEntityField.ArgumentValue>
+                  </udam:DynamicEntityField>
+                  <udam:DynamicEntityField Id="0e0cfdf3-812a-f011-8b3d-002248997c1b" Name="WidthGrossToBe">
+                    <udam:DynamicEntityField.ArgumentValue>
+                      <InArgument x:TypeArguments="x:String">[WidthGrossToBe]</InArgument>
+                    </udam:DynamicEntityField.ArgumentValue>
+                  </udam:DynamicEntityField>
+                  <udam:DynamicEntityField Id="0f0cfdf3-812a-f011-8b3d-002248997c1b" Name="WidthNet">
+                    <udam:DynamicEntityField.ArgumentValue>
+                      <InArgument x:TypeArguments="x:String">[WidthNet]</InArgument>
+                    </udam:DynamicEntityField.ArgumentValue>
+                  </udam:DynamicEntityField>
+                  <udam:DynamicEntityField Id="29808688-2f32-f011-8b3d-002248997c1b" Name="Zaaginformatie">
+                    <udam:DynamicEntityField.ArgumentValue>
+                      <InArgument x:TypeArguments="x:String">[Zaaginformatie]</InArgument>
+                    </udam:DynamicEntityField.ArgumentValue>
+                  </udam:DynamicEntityField>
+                </scg:List>
+              </udam:RecordState.SelectedFields>
+            </udam:RecordState>
+          </uda:CreateEntityRecord.State>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </uda:CreateEntityRecord>
+      </Sequence>
+      <upau:CreateUserAction ExternalTag="{x:Null}" Labels="{x:Null}" PrimaryActionableOutcome="{x:Null}" PrimaryButtonLabel="{x:Null}" SecondaryActionableOutcome="{x:Null}" SecondaryButtonLabel="{x:Null}" SolutionApp="{x:Null}" SolutionTaskCatalog="{x:Null}" TaskCatalog="{x:Null}" TaskFieldsForDesktop="{x:Null}" TaskFieldsForWeb="{x:Null}" TaskOutput="{x:Null}" TimeoutMs="{x:Null}" ActionableNotification="False" DisplayName="Create App Task" EnforcePropertyRefresh="False" FolderPath="Fijne Werkvoorbereiding" sap:VirtualizedContainerService.HintSize="626,57" sap2010:WorkflowViewState.IdRef="CreateUserAction_2" TaskPriority="Medium" TaskTitle="[Current_Description + &quot;- Order: &quot; + Ordernummer + &quot; - &quot; + &quot;PD: &quot;  + Current_ProdHeaderDossierCode + &quot; - Fijne werkvoorbereiding&quot;]">
+        <upau:CreateUserAction.AppActionData>
+          <InArgument x:TypeArguments="s:Guid" x:Key="EntityRecordID">[PDSuggestieOutputID.Id]</InArgument>
+        </upau:CreateUserAction.AppActionData>
+        <upau:CreateUserAction.AppActionPropertiesMetadata>
+          <upama:SchemaPropertiesMetadata Format="{x:Null}" x:Key="EntityRecordID" />
+        </upau:CreateUserAction.AppActionPropertiesMetadata>
+        <upau:CreateUserAction.CurrentAppTaskState>
+          <upama:AppTaskState CodeBehindProcessKey="{x:Null}" CodeBehindRuntimeType="{x:Null}" AppId="ID3c09881f6b3944a4b192f6ff2683e8f2" AppName="Fijne Werkvoorbereiding" AppVersion="12" FolderKey="1f80620b-3b2f-49df-9a1b-9ed8730fb54f" />
+        </upau:CreateUserAction.CurrentAppTaskState>
+        <upau:CreateUserAction.State>
+          <upama:RecordDynamicActionPropertiesState>
+            <upama:RecordDynamicActionPropertiesState.AllowedActions>
+              <scg:List x:TypeArguments="x:String" Capacity="1">
+                <x:String>Akkoord</x:String>
+              </scg:List>
+            </upama:RecordDynamicActionPropertiesState.AllowedActions>
+            <upama:RecordDynamicActionPropertiesState.SelectedFields>
+              <scg:List x:TypeArguments="upama:DynamicActionDefinitionSchemaField" Capacity="1">
+                <upama:DynamicActionDefinitionSchemaField PropertyFormat="{x:Null}" Direction="In" IsRequired="True" Name="EntityRecordID" PropertyType="System.Guid">
+                  <upama:DynamicActionDefinitionSchemaField.ArgumentValue>
+                    <InArgument x:TypeArguments="s:Guid">[PDSuggestieOutputID.Id]</InArgument>
+                  </upama:DynamicActionDefinitionSchemaField.ArgumentValue>
+                </upama:DynamicActionDefinitionSchemaField>
+              </scg:List>
+            </upama:RecordDynamicActionPropertiesState.SelectedFields>
+          </upama:RecordDynamicActionPropertiesState>
+        </upau:CreateUserAction.State>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </upau:CreateUserAction>
+      <Assign DisplayName="Reset ReferentiePDNr" sap:VirtualizedContainerService.HintSize="626,114" sap2010:WorkflowViewState.IdRef="Assign_3">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:Int32">[ReferentiePDorder]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:Int32">0</InArgument>
+        </Assign.Value>
+      </Assign>
+      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="1.4.1 Retrieve and fill Alternative Entity Data - Invoke Workflow File (Process\1.4.1 Retrieve and fill Alternative Entity Data.xaml)" sap:VirtualizedContainerService.HintSize="626,177" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Process\1.4.1 Retrieve and fill Alternative Entity Data.xaml">
+        <ui:InvokeWorkflowFile.Arguments>
+          <InArgument x:TypeArguments="p:PDSuggestion" x:Key="PDSuggestieOutputID">[PDSuggestieOutputID]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="Current_ProdHeaderDossierCode">[Current_ProdHeaderDossierCode]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="Alternative_ProdHeaderDossierCode">[Current_ProdHeaderDossierCode]</InArgument>
+          <InArgument x:TypeArguments="x:Int32" x:Key="ReferentiePDorder">[ReferentiePDorder]</InArgument>
+          <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="DatabaseConnection">[DatabaseConnection]</InArgument>
+          <InArgument x:TypeArguments="x:String" x:Key="Quantity">[QuantityOld]</InArgument>
+        </ui:InvokeWorkflowFile.Arguments>
+      </ui:InvokeWorkflowFile>
+      <ui:RepeatNumberOfTimesX DisplayName="Repeat For Alternative PD's" sap:VirtualizedContainerService.HintSize="626,945" sap2010:WorkflowViewState.IdRef="RepeatNumberOfTimesX_1" NumberOfTimes="5" StartAt="1">
+        <ui:RepeatNumberOfTimesX.Body>
+          <ActivityAction x:TypeArguments="x:Int32">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentItem" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="592,758" sap2010:WorkflowViewState.IdRef="Sequence_19">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <Assign DisplayName="Assign ReferentiePDNr + 1" sap:VirtualizedContainerService.HintSize="530,114" sap2010:WorkflowViewState.IdRef="Assign_2">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="x:Int32">[ReferentiePDorder]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="x:Int32">[ReferentiePDorder + 1]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <If Condition="[transactionItem(&quot;ReferencePD&quot;+ReferentiePDorder.tostring+&quot;&quot;).tostring &lt;&gt; &quot;No Match Found&quot;]" DisplayName="If Current reference has match" sap:VirtualizedContainerService.HintSize="530,556" sap2010:WorkflowViewState.IdRef="If_6">
+                <If.Then>
+                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="496,370" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:String" Name="Alternative_ProdHeaderDossierCode" />
+                    </Sequence.Variables>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Assign DisplayName="Assign Alternative_ProdHeaderDossierCode" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="Assign_8">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[Alternative_ProdHeaderDossierCode]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">[transactionItem("ReferencePD"+ReferentiePDorder.tostring+"").tostring]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="1.4.1 Retrieve and fill Alternative Entity Data - Invoke Workflow File (Process\1.4.1 Retrieve and fill Alternative Entity Data.xaml)" sap:VirtualizedContainerService.HintSize="434,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Process\1.4.1 Retrieve and fill Alternative Entity Data.xaml">
+                      <ui:InvokeWorkflowFile.Arguments>
+                        <InArgument x:TypeArguments="p:PDSuggestion" x:Key="PDSuggestieOutputID">[PDSuggestieOutputID]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="Current_ProdHeaderDossierCode">[Current_ProdHeaderDossierCode]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="Alternative_ProdHeaderDossierCode">[Alternative_ProdHeaderDossierCode]</InArgument>
+                        <InArgument x:TypeArguments="x:Int32" x:Key="ReferentiePDorder">[ReferentiePDorder]</InArgument>
+                        <InArgument x:TypeArguments="ui:DatabaseConnection" x:Key="DatabaseConnection">[DatabaseConnection]</InArgument>
+                        <InArgument x:TypeArguments="x:String" x:Key="Quantity">[QuantityOld]</InArgument>
+                      </ui:InvokeWorkflowFile.Arguments>
+                    </ui:InvokeWorkflowFile>
+                  </Sequence>
+                </If.Then>
+                <If.Else>
+                  <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,25" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Sequence>
+                </If.Else>
+              </If>
+            </Sequence>
+          </ActivityAction>
+        </ui:RepeatNumberOfTimesX.Body>
+      </ui:RepeatNumberOfTimesX>
+    </Sequence>
+    <ui:LogMessage DisplayName="Log &quot;entities filled and task created&quot;" sap:VirtualizedContainerService.HintSize="688,164" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;entities filled and task created&quot;]" />
+  </Sequence>
+</Activity>
