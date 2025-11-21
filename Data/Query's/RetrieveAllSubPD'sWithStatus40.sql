@@ -16,7 +16,7 @@ LEFT JOIN  [T_ProductionHeader] PHmain on PHmain.prodheaderdossiercode = (Select
 LEFT JOIN [T_Part] p on p.PartCode = PHmain.PartCode
 
 Where 1=1
-AND PHT.ProdStatusCode IN ('40') --status = Gereed voor werkvoorbereiding
+AND PHT.ProdStatusCode IN ('40','41') --status = Gereed voor werkvoorbereiding
 AND OrdNr <> '' --Must be in an order
 --AND PHT.ORDNr = '20252508    '
 --AND PHT.description LIKE '%tussenlijst boven%'
