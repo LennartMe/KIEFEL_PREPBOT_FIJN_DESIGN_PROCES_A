@@ -35,6 +35,7 @@
       <x:String>System.Xml.Serialization</x:String>
       <x:String>UiPath.Excel</x:String>
       <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.Numerics</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -90,9 +91,12 @@
       <AssemblyReference>System.Linq.Async</AssemblyReference>
       <AssemblyReference>System.Collections</AssemblyReference>
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Failure catch sequence for process A" sap:VirtualizedContainerService.HintSize="1007.3333333333333,3591.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Failure catch sequence for process A" sap:VirtualizedContainerService.HintSize="916,3591.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dt_ToProcessPDs" />
       <Variable x:TypeArguments="ui:QueueItem" Name="TransactionItem" />
@@ -204,9 +208,9 @@
                         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Send Email Sequence - Invoke Workflow File (Send Email Sequence.xaml)" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Send Email Sequence.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
                             <InArgument x:TypeArguments="x:String" x:Key="CC" />
-                            <InArgument x:TypeArguments="x:String" x:Key="EmailSubject">Resultaat Fijne Werkvoorbereiding</InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="Message1">Hierbij de Excel met het resultaat.</InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="Message2" />
+                            <InArgument x:TypeArguments="x:String" x:Key="EmailSubject">Info: Data Fijne Werkvoorbereiding applicatie</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="Message1" xml:space="preserve">[IF(dt_ToProcessPDs.rowcount = 1,"Er is 1 productiedossier gevonden met status 40.",IF(dt_ToProcessPDs.rowcount &gt; 0 ,"Er zijn "  + dt_ToProcessPDs.rowcount.ToString + " productiedossiers gevonden met status 40.", "Er zijn geen productiedossiers gevonden met status 40."))]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="Message2" xml:space="preserve">[IF(dt_ToProcessPDs.rowcount = 1,"Deze is toegevoegd aan de app en op status 41 gezet.",IF(dt_ToProcessPDs.rowcount &gt; 0 ,"Deze zijn alle "  + dt_ToProcessPDs.rowcount.ToString + " toegevoegd aan de app en op status 41 gezet.","Er is niks toegevoegd aan de app."))]</InArgument>
                             <InArgument x:TypeArguments="x:String" x:Key="BCC" />
                             <InArgument x:TypeArguments="x:String" x:Key="ResultsTable" />
                             <InArgument x:TypeArguments="x:String" x:Key="QueueExcel" />
