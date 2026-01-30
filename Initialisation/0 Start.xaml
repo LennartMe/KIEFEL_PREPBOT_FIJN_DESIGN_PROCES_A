@@ -96,7 +96,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Failure catch sequence for process A" sap:VirtualizedContainerService.HintSize="916,3591.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Failure catch sequence for process A" sap:VirtualizedContainerService.HintSize="784.6666666666666,1360" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dt_ToProcessPDs" />
       <Variable x:TypeArguments="ui:QueueItem" Name="TransactionItem" />
@@ -106,8 +106,8 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:GetQueueItem ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Get ManualStart trigger" FolderPath="Fijne Werkvoorbereiding" sap:VirtualizedContainerService.HintSize="566,176.66666666666666" sap2010:WorkflowViewState.IdRef="GetQueueItem_1" QueueType="Proces_A_Trigger_Queue" TransactionItem="[GlobalVariablesNamespace.GlobalVariables.ManualStart]" />
-    <If Condition="[GlobalVariablesNamespace.GlobalVariables.ManualStart is Nothing]" DisplayName="If ManualStart" sap:VirtualizedContainerService.HintSize="566,458" sap2010:WorkflowViewState.IdRef="If_4">
+    <ui:GetQueueItem ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Get ManualStart trigger" FolderPath="Fijne Werkvoorbereiding" sap:VirtualizedContainerService.HintSize="460,176.66666666666666" sap2010:WorkflowViewState.IdRef="GetQueueItem_1" QueueType="Proces_A_Trigger_Queue" TransactionItem="[GlobalVariablesNamespace.GlobalVariables.ManualStart]" />
+    <If Condition="[GlobalVariablesNamespace.GlobalVariables.ManualStart is Nothing]" DisplayName="If ManualStart" sap:VirtualizedContainerService.HintSize="460,458" sap2010:WorkflowViewState.IdRef="If_4">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -142,15 +142,16 @@
         </Sequence>
       </If.Else>
     </If>
-    <TryCatch DisplayName="Catch failure" sap:VirtualizedContainerService.HintSize="566,2934" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Catch failure" sap:VirtualizedContainerService.HintSize="460,702.6666666666666" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <ui:RetryScope DisplayName="Retry failed process 3 times before failure and failure message." sap:VirtualizedContainerService.HintSize="564,2512" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3" RetryInterval="00:00:30">
+        <ui:RetryScope DisplayName="Retry failed process 3 times before failure and failure message." sap:VirtualizedContainerService.HintSize="458,25.333333333333332" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="3" RetryInterval="00:00:30">
           <ui:RetryScope.ActivityBody>
             <ActivityAction>
               <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="522,2333.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_2">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Initialisation" sap:VirtualizedContainerService.HintSize="488,177.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Initialisation\0.1 Initialisation.xaml">
@@ -205,7 +206,7 @@
                             <InArgument x:TypeArguments="sd:DataTable" x:Key="dt_ToProcessPDs">[dt_ToProcessPDs]</InArgument>
                           </ui:InvokeWorkflowFile.Arguments>
                         </ui:InvokeWorkflowFile>
-                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Send Email Sequence - Invoke Workflow File (Send Email Sequence.xaml)" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Send Email Sequence.xaml">
+                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Send Email Sequence - Invoke Workflow File (Send Email Sequence.xaml)" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" UnSafe="False" WorkflowFileName="Shared\Send Email Sequence.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
                             <InArgument x:TypeArguments="x:String" x:Key="CC" />
                             <InArgument x:TypeArguments="x:String" x:Key="EmailSubject">Info: Data Fijne Werkvoorbereiding applicatie</InArgument>
@@ -281,6 +282,12 @@
           <ui:RetryScope.Condition>
             <ActivityFunc x:TypeArguments="x:Boolean" />
           </ui:RetryScope.Condition>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
         </ui:RetryScope>
       </TryCatch.Try>
       <TryCatch.Catches>
@@ -295,12 +302,66 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <ui:LogMessage DisplayName="Log Message &quot;Placeholder for failure email message&quot;" sap:VirtualizedContainerService.HintSize="564,144.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Warn" Message="[&quot;Placeholder for failure email message&quot;]" />
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="458,400" sap2010:WorkflowViewState.IdRef="Sequence_17">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="x:String" Name="SupportEmail" />
+              </Sequence.Variables>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log &quot;! Unknown Failure Detected !&quot;" sap:VirtualizedContainerService.HintSize="424,57.333333333333336" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Fatal" Message="[&quot;! Unknown Failure Detected !&quot;]">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:LogMessage>
+              <ui:LogMessage DisplayName="Log Exception message" sap:VirtualizedContainerService.HintSize="424,57.333333333333336" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Fatal" Message="[&quot;Exception &quot; + exception.Message]">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:LogMessage>
+              <ui:GetRobotAsset TimeoutMS="{x:Null}" AssetName="SupportEmail" CacheStrategy="None" DisplayName="Get SupportEmail Asset" FolderPath="Shared" sap:VirtualizedContainerService.HintSize="424,57.333333333333336" sap2010:WorkflowViewState.IdRef="GetRobotAsset_2">
+                <ui:GetRobotAsset.Value>
+                  <OutArgument x:TypeArguments="x:String">[SupportEmail]</OutArgument>
+                </ui:GetRobotAsset.Value>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:GetRobotAsset>
+              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Send Email Sequence - Invoke Workflow File (Send Email Sequence.xaml)" sap:VirtualizedContainerService.HintSize="424,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="Shared\Send Email Sequence.xaml">
+                <ui:InvokeWorkflowFile.Arguments>
+                  <InArgument x:TypeArguments="x:String" x:Key="CC">[SupportEmail]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="EmailSubject">URGENT - Onbekende fout fijne werkvoorbereiding proces A</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="Message1">Ik ben gestopt met de fijne werkvoorbereiding proces A vanwege een onbekende fout waar ik niet mee verder kan.</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="Message2" xml:space="preserve">["Lees onderstaande foutmelding voor meer informatie en probeer het item opnieuw te verwerken in de app. Lukt dit alsnog niet? neem als het nodig is contact op met de ontwikkelaar. &lt;br&gt;" + Environment.NewLine + 
+exception.Message]</InArgument>
+                  <InArgument x:TypeArguments="x:String" x:Key="BCC" />
+                  <InArgument x:TypeArguments="x:String" x:Key="ResultsTable" />
+                  <InArgument x:TypeArguments="x:String" x:Key="QueueExcel" />
+                </ui:InvokeWorkflowFile.Arguments>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:InvokeWorkflowFile>
+            </Sequence>
           </ActivityAction>
         </Catch>
       </TryCatch.Catches>
       <TryCatch.Finally>
-        <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="564,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="458,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
