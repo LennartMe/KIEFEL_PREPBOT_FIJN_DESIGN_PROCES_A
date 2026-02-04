@@ -104,7 +104,7 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Failure catch sequence for process A" sap:VirtualizedContainerService.HintSize="784.6666666666666,4248" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Failure catch sequence for process A" sap:VirtualizedContainerService.HintSize="784.6666666666666,4601.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dt_ToProcessPDs" />
       <Variable x:TypeArguments="ui:QueueItem" Name="TransactionItem" />
@@ -373,7 +373,7 @@ exception.Message]</InArgument>
         </Sequence>
       </TryCatch.Finally>
     </TryCatch>
-    <If Condition="[StartLocalServer = True]" DisplayName="If StartLocalServer = True" sap:VirtualizedContainerService.HintSize="566,449.3333333333333" sap2010:WorkflowViewState.IdRef="If_6">
+    <If Condition="[StartLocalServer = True]" DisplayName="If StartLocalServer = True" sap:VirtualizedContainerService.HintSize="566,802.6666666666666" sap2010:WorkflowViewState.IdRef="If_6">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -381,17 +381,19 @@ exception.Message]</InArgument>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,228" sap2010:WorkflowViewState.IdRef="Sequence_20">
+        <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="450,581.3333333333334" sap2010:WorkflowViewState.IdRef="Sequence_20">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Start Local FileServer - Invoke Workflow File (Start Local FileServer.xaml)" sap:VirtualizedContainerService.HintSize="416,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" UnSafe="False" WorkflowFileName="Start Local FileServer.xaml">
+          <ui:LogMessage DisplayName="Log &quot;Starting Local File Server&quot;" sap:VirtualizedContainerService.HintSize="416,176.66666666666666" sap2010:WorkflowViewState.IdRef="LogMessage_6" Message="[&quot;Starting Local File Server..&quot;]" />
+          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Start Local FileServer - Invoke Workflow File (Start Local FileServer.xaml)" sap:VirtualizedContainerService.HintSize="416,177.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" UnSafe="False" WorkflowFileName="Start Local FileServer.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <scg:Dictionary x:TypeArguments="x:String, Argument" />
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
+          <ui:LogMessage DisplayName="Log &quot;Local File Server started.&quot;" sap:VirtualizedContainerService.HintSize="416,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_7" Message="[&quot;Local File Server Started.&quot;]" />
         </Sequence>
       </If.Then>
       <If.Else>
